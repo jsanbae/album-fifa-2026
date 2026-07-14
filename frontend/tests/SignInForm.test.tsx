@@ -1,5 +1,5 @@
 import { act, fireEvent, render, screen, waitFor } from '@testing-library/react';
-import { describe, expect, it, vi } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import { SignInForm } from '../src/shared/infrastructure/ui/SignInForm.js';
 
 function mockBoundingRect(element: HTMLElement) {
@@ -25,19 +25,31 @@ function dispatchPointerMove(target: HTMLElement, clientX: number, clientY: numb
   });
 }
 
+const supabaseAuth = vi.hoisted(() => ({
+  signInWithPassword: vi.fn(() => new Promise(() => {})),
+  signInWithOtp: vi.fn(() => new Promise(() => {})),
+  signUp: vi.fn(() => new Promise(() => {})),
+  resetPasswordForEmail: vi.fn(() => new Promise(() => {})),
+  signInWithOAuth: vi.fn(() => new Promise(() => {})),
+}));
+
+const supabaseClient = vi.hoisted(() => ({
+  current: { auth: supabaseAuth } as { auth: typeof supabaseAuth } | null,
+}));
+
 vi.mock('../src/shared/infrastructure/supabaseClient.js', () => ({
   getAccessToken: vi.fn(() => Promise.resolve(null)),
-  supabase: {
-    auth: {
-      signInWithPassword: vi.fn(() => new Promise(() => {})),
-      signInWithOtp: vi.fn(() => new Promise(() => {})),
-      signUp: vi.fn(() => new Promise(() => {})),
-      resetPasswordForEmail: vi.fn(() => new Promise(() => {})),
-    },
+  get supabase() {
+    return supabaseClient.current;
   },
 }));
 
 describe('The SignInForm', () => {
+  afterEach(() => {
+    supabaseClient.current = { auth: supabaseAuth };
+    vi.clearAllMocks();
+  });
+
   it('renders sign-in branding through SignInBranding', () => {
     render(<SignInForm onSignedIn={vi.fn()} />);
 
@@ -216,5 +228,61 @@ describe('The SignInForm', () => {
         'Check your email for the password reset link.',
       );
     });
+  });
+
+  it('shows Sign in with Google on sign-in and hides it on forgot-password', () => {
+    render(<SignInForm onSignedIn={vi.fn()} />);
+
+    expect(screen.getByRole('button', { name: 'Sign in with Google' })).toBeInTheDocument();
+
+    fireEvent.click(screen.getByRole('button', { name: 'Forgot password' }));
+
+    expect(screen.queryByRole('button', { name: 'Sign in with Google' })).not.toBeInTheDocument();
+  });
+
+  it('starts Google OAuth with redirect to the app origin', async () => {
+    supabaseAuth.signInWithOAuth.mockResolvedValueOnce({ data: { provider: 'google', url: null }, error: null });
+
+    render(<SignInForm onSignedIn={vi.fn()} />);
+
+    fireEvent.click(screen.getByRole('button', { name: 'Sign in with Google' }));
+
+    await waitFor(() => {
+      expect(supabaseAuth.signInWithOAuth).toHaveBeenCalledWith({
+        provider: 'google',
+        options: { redirectTo: window.location.origin },
+      });
+    });
+  });
+
+  it('explains missing Supabase config when Google sign-in is unavailable', async () => {
+    supabaseClient.current = null;
+
+    render(<SignInForm onSignedIn={vi.fn()} />);
+
+    fireEvent.click(screen.getByRole('button', { name: 'Sign in with Google' }));
+
+    await waitFor(() => {
+      expect(screen.getByRole('alert')).toHaveTextContent(
+        'Supabase is not configured. Set VITE_SUPABASE_URL and VITE_SUPABASE_PUBLISHABLE_KEY.',
+      );
+    });
+    expect(supabaseAuth.signInWithOAuth).not.toHaveBeenCalled();
+  });
+
+  it('displays Google OAuth errors and clears the loading state', async () => {
+    supabaseAuth.signInWithOAuth.mockResolvedValueOnce({
+      data: { provider: 'google', url: null },
+      error: { message: 'Provider is not enabled' } as never,
+    });
+
+    render(<SignInForm onSignedIn={vi.fn()} />);
+
+    fireEvent.click(screen.getByRole('button', { name: 'Sign in with Google' }));
+
+    await waitFor(() => {
+      expect(screen.getByRole('alert')).toHaveTextContent('Provider is not enabled');
+    });
+    expect(screen.getByRole('button', { name: 'Sign in with Google' })).not.toBeDisabled();
   });
 });

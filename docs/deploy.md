@@ -49,12 +49,17 @@ Option A splits hosting: the Bun/Express backend runs on Railway; the Vite React
 2. Supabase → Authentication → URL Configuration:
    - **Site URL:** Vercel production origin
    - **Redirect URLs:** include that origin and `…/`
-3. Rebuild the Vercel project if `VITE_API_URL` changed after the first frontend deploy.
+3. Supabase → Authentication → Providers → **Google** (required for Sign in with Google):
+   - Create an OAuth 2.0 Web client in Google Cloud Console
+   - Set Authorized redirect URI to `https://<project-ref>.supabase.co/auth/v1/callback`
+   - Enable Google in Supabase and paste the Client ID and Client Secret there (not in Vercel/Railway env)
+4. Rebuild the Vercel project if `VITE_API_URL` changed after the first frontend deploy.
 
 ## Smoke-test checklist
 
 - [ ] `GET /health` on Railway returns 200
 - [ ] Open the Vercel URL; sign-in / sign-up works (Supabase redirects back)
+- [ ] **Sign in with Google** returns to the app authenticated (provider enabled + SPA origin allow-listed)
 - [ ] Catalog stickers load (browser Network → Railway API, no CORS error)
 - [ ] Collection increment/decrement works while authenticated
 

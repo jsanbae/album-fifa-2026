@@ -22,6 +22,57 @@
   box-shadow: var(--shadow-elevation);
 }
 
+.googleButton {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-color);
+  background: var(--surface-glass);
+  background-color: var(--bg-color);
+  border: var(--border-glass);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  min-height: 2.75rem;
+  transition: var(--transition-interactive);
+}
+
+.googleButton:hover:not(:disabled) {
+  box-shadow: var(--glow-cyan);
+}
+
+.googleButton:active:not(:disabled) {
+  box-shadow: var(--shadow-inset);
+  transform: scale(0.98);
+}
+
+.googleButton:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.authDivider {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--text-secondary-color);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.authDivider::before,
+.authDivider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background-color: var(--chip-bg-color);
+}
+
+.authDividerLabel {
+  flex-shrink: 0;
+}
+
 .modeToggle {
   display: flex;
   gap: 0.5rem;

@@ -17,6 +17,7 @@ interface SignInState {
   confirmPassword: string;
   mode: SignInMode;
   loading: boolean;
+  pendingGoogle: boolean;
   message: Maybe<string>;
   error: Maybe<string>;
 }
@@ -28,6 +29,7 @@ const initialState: SignInState = {
   confirmPassword: '',
   mode: 'password',
   loading: false,
+  pendingGoogle: false,
   message: Maybe.none(),
   error: Maybe.none(),
 };
@@ -65,15 +67,41 @@ export function SignInForm(props: SignInFormProps) {
   };
 
   const startLoading = () => {
-    setState((prev) => ({ ...prev, loading: true, error: Maybe.none(), message: Maybe.none() }));
+    setState((prev) => ({
+      ...prev,
+      loading: true,
+      pendingGoogle: false,
+      error: Maybe.none(),
+      message: Maybe.none(),
+    }));
+  };
+
+  const startGoogleLoading = () => {
+    setState((prev) => ({
+      ...prev,
+      loading: true,
+      pendingGoogle: true,
+      error: Maybe.none(),
+      message: Maybe.none(),
+    }));
   };
 
   const setError = (error: string) => {
-    setState((prev) => ({ ...prev, loading: false, error: Maybe.some(error) }));
+    setState((prev) => ({
+      ...prev,
+      loading: false,
+      pendingGoogle: false,
+      error: Maybe.some(error),
+    }));
   };
 
   const setMessage = (message: string) => {
-    setState((prev) => ({ ...prev, loading: false, message: Maybe.some(message) }));
+    setState((prev) => ({
+      ...prev,
+      loading: false,
+      pendingGoogle: false,
+      message: Maybe.some(message),
+    }));
   };
 
   const handlePasswordSignIn = async () => {
@@ -157,6 +185,21 @@ export function SignInForm(props: SignInFormProps) {
     setMessage('Check your email for the password reset link.');
   };
 
+  const handleGoogleSignIn = async () => {
+    if (!supabase) {
+      setError(SUPABASE_NOT_CONFIGURED);
+      return;
+    }
+    startGoogleLoading();
+    const { error } = await supabase.auth.signInWithOAuth({
+      provider: 'google',
+      options: { redirectTo: window.location.origin },
+    });
+    if (error) {
+      setError(error.message);
+    }
+  };
+
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
 
@@ -194,8 +237,9 @@ export function SignInForm(props: SignInFormProps) {
           ? 'Sign in'
           : 'Send magic link';
 
-  const loadingMessage =
-    state.view === 'sign-up'
+  const loadingMessage = state.pendingGoogle
+    ? 'Redirecting to Google, please wait.'
+    : state.view === 'sign-up'
       ? 'Creating account, please wait.'
       : state.view === 'forgot-password'
         ? 'Sending reset link, please wait.'
@@ -209,24 +253,42 @@ export function SignInForm(props: SignInFormProps) {
         <SignInBranding titleId={titleId} subtitle={AUTH_SUBTITLES[state.view]} />
 
         {state.view === 'sign-in' && (
-          <div className={styles.modeToggle} role="group" aria-label="Sign-in method">
+          <>
             <button
               type="button"
-              className={state.mode === 'password' ? styles.modeActive : styles.modeButton}
-              onClick={() => setMode('password')}
-              aria-pressed={state.mode === 'password'}
+              className={styles.googleButton}
+              onClick={handleGoogleSignIn}
+              disabled={state.loading}
+              aria-busy={state.pendingGoogle}
             >
-              Email &amp; password
+              {state.pendingGoogle ? 'Please wait…' : 'Sign in with Google'}
             </button>
-            <button
-              type="button"
-              className={state.mode === 'magic-link' ? styles.modeActive : styles.modeButton}
-              onClick={() => setMode('magic-link')}
-              aria-pressed={state.mode === 'magic-link'}
-            >
-              Magic link
-            </button>
-          </div>
+
+            <div className={styles.authDivider} role="separator" aria-label="or">
+              <span className={styles.authDividerLabel}>or</span>
+            </div>
+
+            <div className={styles.modeToggle} role="group" aria-label="Sign-in method">
+              <button
+                type="button"
+                className={state.mode === 'password' ? styles.modeActive : styles.modeButton}
+                onClick={() => setMode('password')}
+                aria-pressed={state.mode === 'password'}
+                disabled={state.loading}
+              >
+                Email &amp; password
+              </button>
+              <button
+                type="button"
+                className={state.mode === 'magic-link' ? styles.modeActive : styles.modeButton}
+                onClick={() => setMode('magic-link')}
+                aria-pressed={state.mode === 'magic-link'}
+                disabled={state.loading}
+              >
+                Magic link
+              </button>
+            </div>
+          </>
         )}
 
         <form
