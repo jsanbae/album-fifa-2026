@@ -1,0 +1,89 @@
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  color: var(--text-secondary-color);
+}
+
+.app {
+  min-height: 100vh;
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 1.25rem;
+  background: var(--surface-glass);
+  background-color: var(--surface-color);
+  backdrop-filter: blur(var(--blur-glass));
+  -webkit-backdrop-filter: blur(var(--blur-glass));
+  border-bottom: var(--border-glass);
+  box-shadow: var(--shadow-elevation);
+}
+
+.userEmail {
+  font-size: 0.875rem;
+  color: var(--text-secondary-color);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 1;
+  min-width: 0;
+}
+
+.toolbarActions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.accountButton {
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  color: var(--text-color);
+  background: var(--surface-glass);
+  background-color: var(--chip-bg-color);
+  border: var(--border-glass);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  min-height: 2.75rem;
+  transition: var(--transition-interactive);
+}
+
+.accountButton:hover {
+  background-color: var(--surface-glass-elevated);
+  box-shadow: var(--glow-cyan);
+}
+
+.accountButton:active {
+  box-shadow: var(--shadow-inset);
+  transform: scale(0.98);
+}
+
+.signOutButton {
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  color: var(--text-color);
+  background: var(--surface-glass);
+  background-color: var(--chip-bg-color);
+  border: var(--border-glass);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  min-height: 2.75rem;
+  flex-shrink: 0;
+  transition: var(--transition-interactive);
+}
+
+.signOutButton:hover {
+  background-color: var(--surface-glass-elevated);
+  box-shadow: var(--glow-cyan);
+}
+
+.signOutButton:active {
+  box-shadow: var(--shadow-inset);
+  transform: scale(0.98);
+}

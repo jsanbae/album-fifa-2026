@@ -1,0 +1,24 @@
+{
+  "name": "album-fifa-2026",
+  "private": true,
+  "packageManager": "bun@1.3.14",
+  "workspaces": [
+    "common",
+    "backend",
+    "frontend"
+  ],
+  "scripts": {
+    "build": "bun run --filter @album/common build && bun run --filter @album/backend build && bun run --filter @album/frontend build",
+    "build:backend": "bun run --filter @album/common build && bun run --filter @album/backend build",
+    "build:frontend": "bun run --filter @album/common build && bun run --filter @album/frontend build",
+    "start:backend": "bun run --filter @album/backend start",
+    "test": "bun run --filter @album/common test && bun run --filter @album/backend test && bun run --filter @album/frontend test",
+    "lint": "bun run --filter @album/common lint && bun run --filter @album/backend lint && bun run --filter @album/frontend lint",
+    "dev": "concurrently -n backend,frontend -c blue,green \"bun run --filter @album/backend dev\" \"bun run --filter @album/frontend dev\"",
+    "validate-data": "bun scripts/validate-data.ts"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2",
+    "typescript": "^5.8.2"
+  }
+}

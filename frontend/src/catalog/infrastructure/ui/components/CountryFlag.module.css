@@ -1,0 +1,20 @@
+.flag {
+  width: auto;
+  height: var(--flag-slot-height);
+  max-width: 1.5rem;
+  border-radius: 0.125rem;
+  flex-shrink: 0;
+}
+
+.placeholder {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: var(--flag-slot-height);
+  font-size: 0.75rem;
+  color: var(--text-secondary-color);
+  background-color: var(--chip-bg-color);
+  border-radius: 0.125rem;
+  flex-shrink: 0;
+}

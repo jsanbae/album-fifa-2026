@@ -1,0 +1,13 @@
+.md {
+  height: var(--flag-slot-height);
+  width: auto;
+  max-width: var(--brand-icon-max-width-md);
+  flex-shrink: 0;
+}
+
+.sm {
+  height: 0.875rem;
+  width: auto;
+  max-width: var(--brand-icon-max-width-sm);
+  flex-shrink: 0;
+}

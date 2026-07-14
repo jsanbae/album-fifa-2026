@@ -1,0 +1,77 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 0.75rem 1.25rem 1.25rem;
+}
+
+.label {
+  display: block;
+  padding-block: 0.125rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--text-secondary-color);
+}
+
+.inputWrapper {
+  position: relative;
+}
+
+.input {
+  width: 100%;
+  max-width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  color: var(--text-color);
+  background: var(--surface-glass);
+  background-color: var(--surface-color);
+  border: var(--border-glass);
+  border-radius: 0.5rem;
+  transition: var(--transition-interactive);
+}
+
+.inputLoading {
+  composes: input;
+  padding-right: 2.75rem;
+}
+
+.loadingIndicator {
+  position: absolute;
+  top: 50%;
+  right: 0.875rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.spinner {
+  width: 1.25rem;
+  height: 1.25rem;
+  animation: spin 0.8s linear infinite;
+}
+
+.spinnerTrack {
+  stroke: var(--text-secondary-color);
+  opacity: 0.35;
+}
+
+.spinnerArc {
+  stroke: var(--link-color);
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.input::placeholder {
+  color: var(--text-secondary-color);
+}
+
+.input:focus-visible {
+  box-shadow: var(--glow-cyan);
+}

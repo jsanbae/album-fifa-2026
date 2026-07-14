@@ -1,0 +1,8 @@
+.maestro
+.idea
+node_modules
+dist
+.env
+*.log
+
+.vercel

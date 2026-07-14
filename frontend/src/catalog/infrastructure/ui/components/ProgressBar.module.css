@@ -1,0 +1,84 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.25rem;
+  margin: 0 1.25rem;
+  background: var(--surface-glass);
+  background-color: var(--surface-color);
+  backdrop-filter: blur(var(--blur-glass));
+  -webkit-backdrop-filter: blur(var(--blur-glass));
+  border: var(--border-glass);
+  border-radius: 0.75rem;
+  box-shadow: var(--shadow-elevation);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-secondary-color);
+}
+
+.headerAction {
+  flex-shrink: 0;
+  min-height: 2.75rem;
+  padding: 0.5rem 0.875rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--link-color);
+  background: transparent;
+  border: var(--border-glass);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: var(--transition-interactive);
+}
+
+.headerAction:hover {
+  background: var(--surface-glass-elevated);
+  box-shadow: var(--glow-cyan);
+}
+
+.headerAction:active {
+  transform: scale(0.98);
+  box-shadow: var(--shadow-inset);
+}
+
+.headerAction:focus-visible {
+  outline: 2px solid var(--link-color);
+  outline-offset: 2px;
+}
+
+.track {
+  position: relative;
+  width: 100%;
+  height: 0.5rem;
+  background-color: var(--chip-bg-color);
+  border-radius: 0.25rem;
+  overflow: hidden;
+}
+
+.fill {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--accent-color);
+  border-radius: 0.25rem;
+  box-shadow: var(--glow-cyan);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.2s var(--ease-out-quart);
+}
+
+.stats {
+  font-size: var(--font-size-balance);
+  font-weight: 700;
+  color: var(--text-color);
+}
