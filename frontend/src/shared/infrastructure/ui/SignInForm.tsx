@@ -4,6 +4,7 @@ import { useId, useState } from 'react';
 import { AUTH_SUBTITLES, type AuthView, type SignInMode } from './authViews.js';
 import { SignInBranding } from './components/SignInBranding/SignInBranding.js';
 import { supabase } from '../supabaseClient.js';
+import { ui } from './uiStrings.js';
 import styles from './SignInForm.module.css';
 
 interface SignInFormProps {
@@ -33,9 +34,6 @@ const initialState: SignInState = {
   message: Maybe.none(),
   error: Maybe.none(),
 };
-
-const SUPABASE_NOT_CONFIGURED =
-  'Supabase is not configured. Set VITE_SUPABASE_URL and VITE_SUPABASE_PUBLISHABLE_KEY.';
 
 export function SignInForm(props: SignInFormProps) {
   const [state, setState] = useState<SignInState>(initialState);
@@ -106,7 +104,7 @@ export function SignInForm(props: SignInFormProps) {
 
   const handlePasswordSignIn = async () => {
     if (!supabase) {
-      setError(SUPABASE_NOT_CONFIGURED);
+      setError(ui.supabaseNotConfigured);
       return;
     }
     startLoading();
@@ -123,7 +121,7 @@ export function SignInForm(props: SignInFormProps) {
 
   const handleMagicLink = async () => {
     if (!supabase) {
-      setError(SUPABASE_NOT_CONFIGURED);
+      setError(ui.supabaseNotConfigured);
       return;
     }
     startLoading();
@@ -135,17 +133,17 @@ export function SignInForm(props: SignInFormProps) {
       setError(error.message);
       return;
     }
-    setMessage('Check your email for the magic link.');
+    setMessage(ui.auth.magicLinkSent);
   };
 
   const handleSignUp = async () => {
     if (!supabase) {
-      setError(SUPABASE_NOT_CONFIGURED);
+      setError(ui.supabaseNotConfigured);
       return;
     }
 
     if (state.password !== state.confirmPassword) {
-      setError('Passwords do not match.');
+      setError(ui.passwordsDoNotMatch);
       return;
     }
 
@@ -166,12 +164,12 @@ export function SignInForm(props: SignInFormProps) {
       return;
     }
 
-    setMessage('Check your email to confirm your account.');
+    setMessage(ui.auth.confirmAccountEmail);
   };
 
   const handleForgotPassword = async () => {
     if (!supabase) {
-      setError(SUPABASE_NOT_CONFIGURED);
+      setError(ui.supabaseNotConfigured);
       return;
     }
     startLoading();
@@ -182,12 +180,12 @@ export function SignInForm(props: SignInFormProps) {
       setError(error.message);
       return;
     }
-    setMessage('Check your email for the password reset link.');
+    setMessage(ui.auth.resetLinkSent);
   };
 
   const handleGoogleSignIn = async () => {
     if (!supabase) {
-      setError(SUPABASE_NOT_CONFIGURED);
+      setError(ui.supabaseNotConfigured);
       return;
     }
     startGoogleLoading();
@@ -223,29 +221,29 @@ export function SignInForm(props: SignInFormProps) {
 
   const formLabel =
     state.view === 'sign-up'
-      ? 'Sign up'
+      ? ui.auth.formSignUp
       : state.view === 'forgot-password'
-        ? 'Forgot password'
-        : 'Sign in';
+        ? ui.auth.formForgotPassword
+        : ui.auth.formSignIn;
 
   const submitLabel =
     state.view === 'sign-up'
-      ? 'Create account'
+      ? ui.auth.createAccount
       : state.view === 'forgot-password'
-        ? 'Send reset link'
+        ? ui.auth.sendResetLink
         : state.mode === 'password'
-          ? 'Sign in'
-          : 'Send magic link';
+          ? ui.auth.signIn
+          : ui.auth.sendMagicLink;
 
   const loadingMessage = state.pendingGoogle
-    ? 'Redirecting to Google, please wait.'
+    ? ui.auth.redirectingGoogle
     : state.view === 'sign-up'
-      ? 'Creating account, please wait.'
+      ? ui.auth.creatingAccount
       : state.view === 'forgot-password'
-        ? 'Sending reset link, please wait.'
+        ? ui.auth.sendingResetLink
         : state.mode === 'password'
-          ? 'Signing in, please wait.'
-          : 'Sending magic link, please wait.';
+          ? ui.auth.signingIn
+          : ui.auth.sendingMagicLink;
 
   return (
     <main className={styles.container} aria-labelledby={titleId}>
@@ -261,14 +259,14 @@ export function SignInForm(props: SignInFormProps) {
               disabled={state.loading}
               aria-busy={state.pendingGoogle}
             >
-              {state.pendingGoogle ? 'Please wait…' : 'Sign in with Google'}
+              {state.pendingGoogle ? ui.pleaseWait : ui.auth.signInWithGoogle}
             </button>
 
-            <div className={styles.authDivider} role="separator" aria-label="or">
-              <span className={styles.authDividerLabel}>or</span>
+            <div className={styles.authDivider} role="separator" aria-label={ui.or}>
+              <span className={styles.authDividerLabel}>{ui.or}</span>
             </div>
 
-            <div className={styles.modeToggle} role="group" aria-label="Sign-in method">
+            <div className={styles.modeToggle} role="group" aria-label={ui.auth.signInMethod}>
               <button
                 type="button"
                 className={state.mode === 'password' ? styles.modeActive : styles.modeButton}
@@ -276,7 +274,7 @@ export function SignInForm(props: SignInFormProps) {
                 aria-pressed={state.mode === 'password'}
                 disabled={state.loading}
               >
-                Email &amp; password
+                {ui.auth.emailPassword}
               </button>
               <button
                 type="button"
@@ -285,7 +283,7 @@ export function SignInForm(props: SignInFormProps) {
                 aria-pressed={state.mode === 'magic-link'}
                 disabled={state.loading}
               >
-                Magic link
+                {ui.auth.magicLink}
               </button>
             </div>
           </>
@@ -298,7 +296,7 @@ export function SignInForm(props: SignInFormProps) {
           onSubmit={handleSubmit}
         >
           <label className={styles.label} htmlFor="sign-in-email">
-            Email
+            {ui.email}
           </label>
           <input
             id="sign-in-email"
@@ -313,7 +311,7 @@ export function SignInForm(props: SignInFormProps) {
           {state.view === 'sign-in' && state.mode === 'password' && (
             <>
               <label className={styles.label} htmlFor="sign-in-password">
-                Password
+                {ui.password}
               </label>
               <input
                 id="sign-in-password"
@@ -330,7 +328,7 @@ export function SignInForm(props: SignInFormProps) {
           {state.view === 'sign-up' && (
             <>
               <label className={styles.label} htmlFor="sign-up-password">
-                Password
+                {ui.password}
               </label>
               <input
                 id="sign-up-password"
@@ -343,7 +341,7 @@ export function SignInForm(props: SignInFormProps) {
               />
 
               <label className={styles.label} htmlFor="sign-up-confirm-password">
-                Confirm password
+                {ui.confirmPassword}
               </label>
               <input
                 id="sign-up-confirm-password"
@@ -376,34 +374,34 @@ export function SignInForm(props: SignInFormProps) {
           )}
 
           <button className={styles.submitButton} type="submit" disabled={state.loading}>
-            {state.loading ? 'Please wait…' : submitLabel}
+            {state.loading ? ui.pleaseWait : submitLabel}
           </button>
 
           <div className={styles.navLinks}>
             {state.view === 'sign-in' && state.mode === 'password' && (
               <>
                 <button type="button" className={styles.navLink} onClick={() => setView('sign-up')}>
-                  Create account
+                  {ui.auth.createAccount}
                 </button>
                 <button
                   type="button"
                   className={styles.navLink}
                   onClick={() => setView('forgot-password')}
                 >
-                  Forgot password
+                  {ui.auth.forgotPassword}
                 </button>
               </>
             )}
 
             {state.view === 'sign-in' && state.mode === 'magic-link' && (
               <button type="button" className={styles.navLink} onClick={() => setView('sign-up')}>
-                Create account
+                {ui.auth.createAccount}
               </button>
             )}
 
             {(state.view === 'sign-up' || state.view === 'forgot-password') && (
               <button type="button" className={styles.navLink} onClick={() => setView('sign-in')}>
-                Back to sign in
+                {ui.auth.backToSignIn}
               </button>
             )}
           </div>

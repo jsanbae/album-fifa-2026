@@ -41,7 +41,7 @@ describe('The authenticated App shell', () => {
     render(<App />);
 
     await waitFor(() => {
-      expect(screen.getByRole('banner', { name: 'Account' })).toBeInTheDocument();
+      expect(screen.getByRole('banner', { name: 'Cuenta' })).toBeInTheDocument();
     });
   });
 
@@ -49,12 +49,12 @@ describe('The authenticated App shell', () => {
     render(<App />);
 
     await waitFor(() => {
-      expect(screen.getByRole('button', { name: 'Account' })).toBeInTheDocument();
+      expect(screen.getByRole('button', { name: 'Cuenta' })).toBeInTheDocument();
     });
 
-    fireEvent.click(screen.getByRole('button', { name: 'Account' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Cuenta' }));
 
-    const dialog = screen.getByRole('dialog', { name: 'Account settings' });
+    const dialog = screen.getByRole('dialog', { name: 'Configuración de cuenta' });
     expect(dialog).toBeInTheDocument();
     expect(within(dialog).getByText('collector@example.com')).toBeInTheDocument();
   });
@@ -68,7 +68,7 @@ describe('The authenticated App shell', () => {
     render(<App />);
 
     await waitFor(() => {
-      expect(screen.getByRole('form', { name: 'Reset password' })).toBeInTheDocument();
+      expect(screen.getByRole('form', { name: 'Restablecer contraseña' })).toBeInTheDocument();
       expect(screen.queryByTestId('sticker-list-page')).not.toBeInTheDocument();
     });
   });

@@ -11,6 +11,7 @@ import { getAccessToken, supabase } from './supabaseClient.js';
 import { AccountSettingsDialog } from './ui/AccountSettingsDialog.js';
 import { ResetPasswordForm } from './ui/ResetPasswordForm.js';
 import { SignInForm } from './ui/SignInForm.js';
+import { ui } from './ui/uiStrings.js';
 import styles from './App.module.css';
 
 interface AuthState {
@@ -88,7 +89,7 @@ export function App() {
   if (authState.loading) {
     return (
       <div className={styles.loading} role="status" aria-live="polite">
-        Loading session…
+        {ui.loadingSession}
       </div>
     );
   }
@@ -111,18 +112,18 @@ export function App() {
   return (
     <div className={styles.app}>
       {!isDevMode && sessionUser && (
-        <header className={styles.toolbar} aria-label="Account">
-          <span className={styles.userEmail}>{sessionUser.email ?? 'Signed in'}</span>
+        <header className={styles.toolbar} aria-label={ui.account.toolbar}>
+          <span className={styles.userEmail}>{sessionUser.email ?? ui.signedIn}</span>
           <div className={styles.toolbarActions}>
             <button
               type="button"
               className={styles.accountButton}
               onClick={() => setAccountSettingsOpen(true)}
             >
-              Account
+              {ui.account.account}
             </button>
             <button type="button" className={styles.signOutButton} onClick={handleSignOut}>
-              Sign out
+              {ui.account.signOut}
             </button>
           </div>
           <AccountSettingsDialog

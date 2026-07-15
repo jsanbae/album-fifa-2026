@@ -27,7 +27,7 @@ describe('The SignInBranding component', () => {
   it('places the Panini logo after the subtitle', () => {
     render(<SignInBranding titleId="sign-in-title" />);
 
-    const subtitle = screen.getByText('Sign in to track your sticker collection');
+    const subtitle = screen.getByText('Inicia sesión para llevar tu álbum de cromos');
     const panini = screen.getByRole('img', { name: 'Panini' });
 
     expect(isBefore(subtitle, panini)).toBe(true);
@@ -43,10 +43,10 @@ describe('The SignInBranding component', () => {
     render(
       <SignInBranding
         titleId="sign-in-title"
-        subtitle="Create an account to save your collection"
+        subtitle="Crea una cuenta para guardar tu colección"
       />,
     );
 
-    expect(screen.getByText('Create an account to save your collection')).toBeInTheDocument();
+    expect(screen.getByText('Crea una cuenta para guardar tu colección')).toBeInTheDocument();
   });
 });

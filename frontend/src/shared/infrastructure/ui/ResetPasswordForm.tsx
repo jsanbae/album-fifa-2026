@@ -4,6 +4,7 @@ import { useId, useState } from 'react';
 import { SignInBranding } from './components/SignInBranding/SignInBranding.js';
 import { RESET_PASSWORD_SUBTITLE } from './authViews.js';
 import { supabase } from '../supabaseClient.js';
+import { ui } from './uiStrings.js';
 import styles from './SignInForm.module.css';
 
 interface ResetPasswordFormProps {
@@ -42,7 +43,7 @@ export function ResetPasswordForm(props: ResetPasswordFormProps) {
     if (state.password !== state.confirmPassword) {
       setState((prev) => ({
         ...prev,
-        error: Maybe.some('Passwords do not match.'),
+        error: Maybe.some(ui.passwordsDoNotMatch),
       }));
       return;
     }
@@ -50,9 +51,7 @@ export function ResetPasswordForm(props: ResetPasswordFormProps) {
     if (!supabase) {
       setState((prev) => ({
         ...prev,
-        error: Maybe.some(
-          'Supabase is not configured. Set VITE_SUPABASE_URL and VITE_SUPABASE_PUBLISHABLE_KEY.',
-        ),
+        error: Maybe.some(ui.supabaseNotConfigured),
       }));
       return;
     }
@@ -76,12 +75,12 @@ export function ResetPasswordForm(props: ResetPasswordFormProps) {
 
         <form
           className={styles.form}
-          aria-label="Reset password"
+          aria-label={ui.auth.formResetPassword}
           aria-busy={state.loading}
           onSubmit={handleSubmit}
         >
           <label className={styles.label} htmlFor="reset-password">
-            New password
+            {ui.newPassword}
           </label>
           <input
             id="reset-password"
@@ -94,7 +93,7 @@ export function ResetPasswordForm(props: ResetPasswordFormProps) {
           />
 
           <label className={styles.label} htmlFor="reset-password-confirm">
-            Confirm password
+            {ui.confirmPassword}
           </label>
           <input
             id="reset-password-confirm"
@@ -114,12 +113,12 @@ export function ResetPasswordForm(props: ResetPasswordFormProps) {
 
           {state.loading && (
             <p className={styles.loadingStatus} role="status" aria-live="polite">
-              Updating password, please wait.
+              {ui.auth.updatingPassword}
             </p>
           )}
 
           <button className={styles.submitButton} type="submit" disabled={state.loading}>
-            {state.loading ? 'Please wait…' : 'Save new password'}
+            {state.loading ? ui.pleaseWait : ui.auth.saveNewPassword}
           </button>
         </form>
       </div>

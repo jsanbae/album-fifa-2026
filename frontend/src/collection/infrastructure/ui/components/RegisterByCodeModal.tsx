@@ -1,5 +1,6 @@
 import { useId } from 'react';
 import { Modal } from '../../../../shared/infrastructure/ui/components/Modal/Modal.js';
+import { ui } from '../../../../shared/infrastructure/ui/uiStrings.js';
 import type { RegisterStickersByCodeResultDTO } from '../../adapters/CollectionApiAdapter.js';
 import { RegisterByCodeForm } from './RegisterByCodeForm.js';
 
@@ -16,7 +17,7 @@ export function RegisterByCodeModal(props: RegisterByCodeModalProps) {
   return (
     <Modal
       open={props.open}
-      title="Register stickers"
+      title={ui.register.modalTitle}
       titleId={titleId}
       onClose={props.onClose}
     >

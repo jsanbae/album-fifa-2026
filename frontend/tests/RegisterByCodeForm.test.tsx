@@ -11,10 +11,10 @@ describe('RegisterByCodeForm', () => {
 
     render(<RegisterByCodeForm onRegister={onRegister} />);
 
-    fireEvent.change(screen.getByLabelText('Register by code'), {
+    fireEvent.change(screen.getByLabelText('Registrar por código'), {
       target: { value: 'MEX1, FWC1' },
     });
-    fireEvent.click(screen.getByRole('button', { name: 'Register' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Registrar' }));
 
     await waitFor(() => {
       expect(onRegister).toHaveBeenCalledWith('MEX1, FWC1');
@@ -24,7 +24,7 @@ describe('RegisterByCodeForm', () => {
   it('disables submit while loading', () => {
     render(<RegisterByCodeForm onRegister={vi.fn()} loading />);
 
-    expect(screen.getByRole('button', { name: 'Register' })).toBeDisabled();
+    expect(screen.getByRole('button', { name: 'Registrar' })).toBeDisabled();
   });
 
   it('shows unknown codes after submit', async () => {
@@ -35,10 +35,10 @@ describe('RegisterByCodeForm', () => {
 
     render(<RegisterByCodeForm onRegister={onRegister} />);
 
-    fireEvent.change(screen.getByLabelText('Register by code'), {
+    fireEvent.change(screen.getByLabelText('Registrar por código'), {
       target: { value: 'MEX1, NOTREAL' },
     });
-    fireEvent.click(screen.getByRole('button', { name: 'Register' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Registrar' }));
 
     await waitFor(() => {
       expect(screen.getByText(/NOTREAL/)).toBeInTheDocument();
@@ -53,9 +53,9 @@ describe('RegisterByCodeForm', () => {
 
     render(<RegisterByCodeForm onRegister={onRegister} />);
 
-    const input = screen.getByLabelText('Register by code');
+    const input = screen.getByLabelText('Registrar por código');
     fireEvent.change(input, { target: { value: 'MEX1' } });
-    fireEvent.click(screen.getByRole('button', { name: 'Register' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Registrar' }));
 
     await waitFor(() => {
       expect(input).toHaveValue('');
@@ -71,10 +71,10 @@ describe('RegisterByCodeForm', () => {
 
     render(<RegisterByCodeForm onRegister={onRegister} onSuccess={onSuccess} />);
 
-    fireEvent.change(screen.getByLabelText('Register by code'), {
+    fireEvent.change(screen.getByLabelText('Registrar por código'), {
       target: { value: 'MEX1' },
     });
-    fireEvent.click(screen.getByRole('button', { name: 'Register' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Registrar' }));
 
     await waitFor(() => {
       expect(onSuccess).toHaveBeenCalledTimes(1);

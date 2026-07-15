@@ -18,15 +18,15 @@ describe('FilterChips', () => {
     const buttons = screen.getAllByRole('button');
     const labels = buttons.map((button) => button.getAttribute('aria-label'));
 
-    expect(labels.indexOf('Missing')).toBeLessThan(labels.indexOf('Collected'));
-    expect(labels.indexOf('Collected')).toBeLessThan(labels.indexOf('Duplicates'));
-    expect(labels.indexOf('Duplicates')).toBeLessThan(labels.indexOf('FIFA World Cup'));
-    expect(screen.getByRole('button', { name: 'Collected' })).toBeInTheDocument();
+    expect(labels.indexOf('Faltantes')).toBeLessThan(labels.indexOf('Conseguidas'));
+    expect(labels.indexOf('Conseguidas')).toBeLessThan(labels.indexOf('Repetidas'));
+    expect(labels.indexOf('Repetidas')).toBeLessThan(labels.indexOf('FIFA World Cup'));
+    expect(screen.getByRole('button', { name: 'Conseguidas' })).toBeInTheDocument();
   });
 
   it('renders the Duplicates chip after Collected and before group chips', () => {
     render(<FilterChips activeFilter="all" onFilterChange={vi.fn()} />);
 
-    expect(screen.getByRole('button', { name: 'Duplicates' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Repetidas' })).toBeInTheDocument();
   });
 });

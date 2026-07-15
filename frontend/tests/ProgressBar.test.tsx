@@ -11,7 +11,7 @@ describe('The ProgressBar', () => {
       />,
     );
 
-    const progressbar = screen.getByRole('progressbar', { name: 'Progress' });
+    const progressbar = screen.getByRole('progressbar', { name: 'Progreso' });
 
     expect(progressbar).toHaveAttribute('aria-valuenow', '142');
     expect(progressbar).toHaveAttribute('aria-valuemin', '0');
@@ -35,7 +35,7 @@ describe('The ProgressBar', () => {
   it('announces zero progress while collection data is unavailable', () => {
     render(<ProgressBar progress={Maybe.none()} />);
 
-    const progressbar = screen.getByRole('progressbar', { name: 'Progress' });
+    const progressbar = screen.getByRole('progressbar', { name: 'Progreso' });
 
     expect(progressbar).toHaveAttribute('aria-valuenow', '0');
     expect(progressbar).toHaveAttribute('aria-valuemin', '0');
@@ -64,15 +64,15 @@ describe('The ProgressBar', () => {
       <ProgressBar
         progress={Maybe.none()}
         headerAction={{
-          label: 'Add codes',
-          ariaLabel: 'Register stickers by code',
+          label: 'Agregar códigos',
+          ariaLabel: 'Registrar cromos por código',
           onClick: () => undefined,
         }}
       />,
     );
 
-    expect(screen.getByRole('button', { name: 'Register stickers by code' })).toHaveTextContent(
-      'Add codes',
+    expect(screen.getByRole('button', { name: 'Registrar cromos por código' })).toHaveTextContent(
+      'Agregar códigos',
     );
   });
 });

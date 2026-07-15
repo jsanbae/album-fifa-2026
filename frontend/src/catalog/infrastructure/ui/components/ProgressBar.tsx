@@ -2,6 +2,7 @@ import { TOTAL_STICKERS } from '@album/common';
 import type { Maybe } from '@album/common';
 import { useId } from 'react';
 import type { CollectionProgressDTO } from '../../../../collection/infrastructure/adapters/CollectionApiAdapter.js';
+import { ui } from '../../../../shared/infrastructure/ui/uiStrings.js';
 import styles from './ProgressBar.module.css';
 
 interface ProgressBarProps {
@@ -73,7 +74,7 @@ export function ProgressBar(props: ProgressBarProps) {
     <div className={styles.container}>
       <div className={styles.header}>
         <div id={labelId} className={styles.label}>
-          Progress
+          {ui.album.progress}
         </div>
         {props.headerAction && (
           <button

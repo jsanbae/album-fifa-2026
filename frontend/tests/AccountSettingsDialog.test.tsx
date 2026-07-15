@@ -33,7 +33,7 @@ describe('The AccountSettingsDialog', () => {
       />,
     );
 
-    expect(screen.getByRole('dialog', { name: 'Account settings' })).toBeInTheDocument();
+    expect(screen.getByRole('dialog', { name: 'Configuración de cuenta' })).toBeInTheDocument();
     expect(screen.getByText('collector@example.com')).toBeInTheDocument();
   });
 
@@ -47,8 +47,8 @@ describe('The AccountSettingsDialog', () => {
       />,
     );
 
-    expect(screen.getByLabelText('New password')).toBeInTheDocument();
-    expect(screen.getByLabelText('Confirm password')).toBeInTheDocument();
+    expect(screen.getByLabelText('Nueva contraseña')).toBeInTheDocument();
+    expect(screen.getByLabelText('Confirmar contraseña')).toBeInTheDocument();
   });
 
   it('hides change-password fields for magic-link-only users', () => {
@@ -61,9 +61,9 @@ describe('The AccountSettingsDialog', () => {
       />,
     );
 
-    expect(screen.queryByLabelText('New password')).not.toBeInTheDocument();
+    expect(screen.queryByLabelText('Nueva contraseña')).not.toBeInTheDocument();
     expect(
-      screen.getByText('Password changes are not available for magic-link-only accounts.'),
+      screen.getByText('El cambio de contraseña no está disponible para cuentas solo con enlace mágico.'),
     ).toBeInTheDocument();
   });
 
@@ -80,17 +80,17 @@ describe('The AccountSettingsDialog', () => {
       />,
     );
 
-    fireEvent.change(screen.getByLabelText('New password'), {
+    fireEvent.change(screen.getByLabelText('Nueva contraseña'), {
       target: { value: 'new-secret-pass' },
     });
-    fireEvent.change(screen.getByLabelText('Confirm password'), {
+    fireEvent.change(screen.getByLabelText('Confirmar contraseña'), {
       target: { value: 'new-secret-pass' },
     });
-    fireEvent.click(screen.getByRole('button', { name: 'Update password' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Actualizar contraseña' }));
 
     await waitFor(() => {
       expect(updateUser).toHaveBeenCalledWith({ password: 'new-secret-pass' });
-      expect(screen.getByRole('status')).toHaveTextContent('Password updated successfully.');
+      expect(screen.getByRole('status')).toHaveTextContent('Contraseña actualizada correctamente.');
     });
   });
 });

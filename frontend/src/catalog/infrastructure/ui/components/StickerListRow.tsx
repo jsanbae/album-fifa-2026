@@ -1,3 +1,4 @@
+import { ui } from '../../../../shared/infrastructure/ui/uiStrings.js';
 import type { StickerDTO } from '../../adapters/CatalogApiAdapter.js';
 import { CountryFlag } from './CountryFlag.js';
 import { GroupIcon } from './icons/GroupIcon.js';
@@ -32,8 +33,8 @@ export function StickerListRow(props: StickerListRowProps) {
               {props.sticker.countryName ?? props.sticker.group}
             </span>
             {props.count >= 2 && (
-              <span className={styles.duplicateBadge} aria-label="Duplicate">
-                Duplicate
+              <span className={styles.duplicateBadge} aria-label={ui.album.duplicate}>
+                {ui.album.duplicate}
               </span>
             )}
           </span>
@@ -49,7 +50,7 @@ export function StickerListRow(props: StickerListRowProps) {
           className={styles.controlButton}
           onClick={() => props.onDecrement(props.sticker.id)}
           disabled={controlsDisabled || props.count === 0}
-          aria-label={`Decrease count for sticker ${props.sticker.id}`}
+          aria-label={ui.album.decreaseCount(props.sticker.id)}
         >
           −
         </button>
@@ -59,7 +60,7 @@ export function StickerListRow(props: StickerListRowProps) {
           className={styles.controlButton}
           onClick={() => props.onIncrement(props.sticker.id)}
           disabled={controlsDisabled}
-          aria-label={`Increase count for sticker ${props.sticker.id}`}
+          aria-label={ui.album.increaseCount(props.sticker.id)}
         >
           +
         </button>

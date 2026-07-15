@@ -80,7 +80,7 @@ describe('The StickerListPage', () => {
     const status = screen.getByRole('status');
 
     expect(status).toHaveAttribute('aria-live', 'polite');
-    expect(status).toHaveTextContent('Loading stickers…');
+    expect(status).toHaveTextContent('Cargando cromos…');
   });
 
   it('shows loading inside the search field while refetching stickers', () => {
@@ -104,11 +104,11 @@ describe('The StickerListPage', () => {
       />,
     );
 
-    expect(screen.getByLabelText('Search by number or name')).toHaveAttribute('aria-busy', 'true');
-    expect(screen.getByRole('status', { name: 'Loading' })).toBeInTheDocument();
+    expect(screen.getByLabelText('Buscar por número o nombre')).toHaveAttribute('aria-busy', 'true');
+    expect(screen.getByRole('status', { name: 'Cargando' })).toBeInTheDocument();
   });
 
-  it('collapses all visible section rows when Collapse all is activated', () => {
+  it('collapses all visible section rows when Contraer todo is activated', () => {
     render(
       <StickerListPage
         catalogHook={createCatalogHook({
@@ -139,13 +139,13 @@ describe('The StickerListPage', () => {
     expect(screen.getByText('FWC Sticker')).toBeInTheDocument();
     expect(screen.getByText('México Player')).toBeInTheDocument();
 
-    fireEvent.click(screen.getByRole('button', { name: 'Collapse all' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Contraer todo' }));
 
     expect(screen.queryByText('FWC Sticker')).not.toBeInTheDocument();
     expect(screen.queryByText('México Player')).not.toBeInTheDocument();
   });
 
-  it('expands all section rows after Collapse all when Expand all is activated', () => {
+  it('expands all section rows after Contraer todo when Expandir todo is activated', () => {
     render(
       <StickerListPage
         catalogHook={createCatalogHook({
@@ -173,8 +173,8 @@ describe('The StickerListPage', () => {
       />,
     );
 
-    fireEvent.click(screen.getByRole('button', { name: 'Collapse all' }));
-    fireEvent.click(screen.getByRole('button', { name: 'Expand all' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Contraer todo' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Expandir todo' }));
 
     expect(screen.getByText('FWC Sticker')).toBeInTheDocument();
     expect(screen.getByText('México Player')).toBeInTheDocument();
@@ -189,11 +189,11 @@ describe('The StickerListPage', () => {
       />,
     );
 
-    expect(screen.getByRole('button', { name: 'Register stickers by code' })).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: 'Register stickers by code' })).toHaveTextContent(
-      'Add codes',
+    expect(screen.getByRole('button', { name: 'Registrar cromos por código' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Registrar cromos por código' })).toHaveTextContent(
+      'Agregar códigos',
     );
-    expect(screen.queryByLabelText('Register by code')).not.toBeInTheDocument();
+    expect(screen.queryByLabelText('Registrar por código')).not.toBeInTheDocument();
   });
 
   it('opens the registration modal from the dashboard action', () => {
@@ -205,10 +205,10 @@ describe('The StickerListPage', () => {
       />,
     );
 
-    fireEvent.click(screen.getByRole('button', { name: 'Register stickers by code' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Registrar cromos por código' }));
 
-    expect(screen.getByRole('dialog', { name: 'Register stickers' })).toBeInTheDocument();
-    expect(screen.getByLabelText('Register by code')).toBeInTheDocument();
+    expect(screen.getByRole('dialog', { name: 'Registrar cromos' })).toBeInTheDocument();
+    expect(screen.getByLabelText('Registrar por código')).toBeInTheDocument();
   });
 
   it('hides register stickers action when unauthenticated', () => {
@@ -220,8 +220,8 @@ describe('The StickerListPage', () => {
       />,
     );
 
-    expect(screen.queryByRole('button', { name: 'Register stickers by code' })).not.toBeInTheDocument();
-    expect(screen.queryByLabelText('Register by code')).not.toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: 'Registrar cromos por código' })).not.toBeInTheDocument();
+    expect(screen.queryByLabelText('Registrar por código')).not.toBeInTheDocument();
   });
 
   it('shows only collected stickers when the collected filter is active', () => {

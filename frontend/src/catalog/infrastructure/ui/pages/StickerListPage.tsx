@@ -7,6 +7,7 @@ import { StickerListSection } from '../components/StickerListSection.js';
 import { StickerSearch } from '../components/StickerSearch.js';
 import { WorldCupEmblem } from '../../../../shared/infrastructure/ui/components/WorldCupEmblem/WorldCupEmblem.js';
 import { RegisterByCodeModal } from '../../../../collection/infrastructure/ui/components/RegisterByCodeModal.js';
+import { ui } from '../../../../shared/infrastructure/ui/uiStrings.js';
 import { filterStickersByOwnership } from '../components/stickerFilters.js';
 import type { useCatalog } from '../store/useCatalog.hook.js';
 import type { useCollection } from '../../../../collection/infrastructure/ui/store/useCollection.hook.js';
@@ -101,7 +102,7 @@ export function StickerListPage(props: StickerListPageProps) {
     if (props.catalogHook.loading && props.catalogHook.stickers.isNone()) {
       return (
         <p className={styles.message} role="status" aria-live="polite">
-          Loading stickers…
+          {ui.album.loadingStickers}
         </p>
       );
     }
@@ -115,7 +116,7 @@ export function StickerListPage(props: StickerListPageProps) {
     }
 
     return props.catalogHook.stickers.fold(
-      () => <p className={styles.message}>No stickers loaded.</p>,
+      () => <p className={styles.message}>{ui.album.noStickersLoaded}</p>,
       (stickers) => {
         const filtered = filterStickersByOwnership(
           stickers,
@@ -124,7 +125,7 @@ export function StickerListPage(props: StickerListPageProps) {
         );
 
         if (filtered.length === 0) {
-          return <p className={styles.message}>No stickers match your filters.</p>;
+          return <p className={styles.message}>{ui.album.noStickersMatch}</p>;
         }
 
         const grouped = groupStickers(filtered);
@@ -148,7 +149,7 @@ export function StickerListPage(props: StickerListPageProps) {
                 className={styles.sectionToolbarButton}
                 onClick={allCollapsed ? expandAll : collapseAll}
               >
-                {allCollapsed ? 'Expand all' : 'Collapse all'}
+                {allCollapsed ? ui.album.expandAll : ui.album.collapseAll}
               </button>
             </div>
             {GROUP_DISPLAY_ORDER.map((groupName) => (
@@ -180,7 +181,7 @@ export function StickerListPage(props: StickerListPageProps) {
               Album FIFA 2026
             </h1>
             {!props.isAuthenticated && (
-              <p className={styles.authHint}>Sign in to track your collection</p>
+              <p className={styles.authHint}>{ui.album.authHint}</p>
             )}
           </div>
         </div>
@@ -191,8 +192,8 @@ export function StickerListPage(props: StickerListPageProps) {
         headerAction={
           props.isAuthenticated
             ? {
-                label: 'Add codes',
-                ariaLabel: 'Register stickers by code',
+                label: ui.album.addCodes,
+                ariaLabel: ui.album.registerByCodeAria,
                 onClick: () => setRegisterModalOpen(true),
               }
             : undefined

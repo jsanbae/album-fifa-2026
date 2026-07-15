@@ -1,3 +1,4 @@
+import { AUTH_SUBTITLES } from '../../authViews.js';
 import { WorldCupEmblem } from '../WorldCupEmblem/WorldCupEmblem.js';
 import styles from './SignInBranding.module.css';
 
@@ -10,7 +11,7 @@ interface SignInBrandingProps {
 }
 
 export function SignInBranding(props: SignInBrandingProps) {
-  const subtitle = props.subtitle ?? 'Sign in to track your sticker collection';
+  const subtitle = props.subtitle ?? AUTH_SUBTITLES['sign-in'];
 
   return (
     <div className={styles.branding} data-testid="sign-in-branding">

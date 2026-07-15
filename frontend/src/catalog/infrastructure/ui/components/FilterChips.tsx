@@ -1,4 +1,5 @@
 import { GROUP_DISPLAY_ORDER } from '@album/common';
+import { ui } from '../../../../shared/infrastructure/ui/uiStrings.js';
 import type { CatalogFilter } from '../store/useCatalog.hook.js';
 import { GroupIcon } from './icons/GroupIcon.js';
 import styles from './FilterChips.module.css';
@@ -12,16 +13,16 @@ const BASE_FILTERS: CatalogFilter[] = ['all', 'missing', 'collected', 'duplicate
 
 function filterLabel(filter: CatalogFilter): string {
   if (filter === 'all') {
-    return 'All';
+    return ui.album.filterAll;
   }
   if (filter === 'missing') {
-    return 'Missing';
+    return ui.album.filterMissing;
   }
   if (filter === 'collected') {
-    return 'Collected';
+    return ui.album.filterCollected;
   }
   if (filter === 'duplicates') {
-    return 'Duplicates';
+    return ui.album.filterDuplicates;
   }
   return filter;
 }
@@ -30,7 +31,7 @@ export function FilterChips(props: FilterChipsProps) {
   const filters: CatalogFilter[] = [...BASE_FILTERS, ...GROUP_DISPLAY_ORDER];
 
   return (
-    <div className={styles.container} role="group" aria-label="Filter stickers">
+    <div className={styles.container} role="group" aria-label={ui.album.filterStickers}>
       {filters.map((filter) => {
         const label = filterLabel(filter);
         const isActive = props.activeFilter === filter;

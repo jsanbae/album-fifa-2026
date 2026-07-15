@@ -1,3 +1,4 @@
+import { ui } from '../../../../shared/infrastructure/ui/uiStrings.js';
 import styles from './StickerSearch.module.css';
 
 interface StickerSearchProps {
@@ -12,14 +13,14 @@ export function StickerSearch(props: StickerSearchProps) {
   return (
     <div className={styles.container}>
       <label className={styles.label} htmlFor="sticker-search">
-        Search by number or name
+        {ui.album.searchLabel}
       </label>
       <div className={styles.inputWrapper}>
         <input
           id="sticker-search"
           className={loading ? styles.inputLoading : styles.input}
           type="search"
-          placeholder="e.g. MEX3, Yamal"
+          placeholder={ui.album.searchPlaceholder}
           value={props.value}
           onChange={(event) => props.onChange(event.target.value)}
           aria-busy={loading}
@@ -29,7 +30,7 @@ export function StickerSearch(props: StickerSearchProps) {
             className={styles.loadingIndicator}
             role="status"
             aria-live="polite"
-            aria-label="Loading"
+            aria-label={ui.loading}
           >
             <svg
               className={styles.spinner}

@@ -8,8 +8,8 @@ describe('RegisterByCodeModal', () => {
       <RegisterByCodeModal open onClose={vi.fn()} onRegister={vi.fn()} />,
     );
 
-    expect(screen.getByRole('dialog', { name: 'Register stickers' })).toBeInTheDocument();
-    expect(screen.getByLabelText('Register by code')).toBeInTheDocument();
+    expect(screen.getByRole('dialog', { name: 'Registrar cromos' })).toBeInTheDocument();
+    expect(screen.getByLabelText('Registrar por código')).toBeInTheDocument();
   });
 
   it('closes after a fully successful registration', async () => {
@@ -23,10 +23,10 @@ describe('RegisterByCodeModal', () => {
       <RegisterByCodeModal open onClose={onClose} onRegister={onRegister} />,
     );
 
-    fireEvent.change(screen.getByLabelText('Register by code'), {
+    fireEvent.change(screen.getByLabelText('Registrar por código'), {
       target: { value: 'MEX1' },
     });
-    fireEvent.click(screen.getByRole('button', { name: 'Register' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Registrar' }));
 
     await waitFor(() => {
       expect(onClose).toHaveBeenCalledTimes(1);
@@ -44,10 +44,10 @@ describe('RegisterByCodeModal', () => {
       <RegisterByCodeModal open onClose={onClose} onRegister={onRegister} />,
     );
 
-    fireEvent.change(screen.getByLabelText('Register by code'), {
+    fireEvent.change(screen.getByLabelText('Registrar por código'), {
       target: { value: 'MEX1, NOTREAL' },
     });
-    fireEvent.click(screen.getByRole('button', { name: 'Register' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Registrar' }));
 
     await waitFor(() => {
       expect(screen.getByText(/NOTREAL/)).toBeInTheDocument();

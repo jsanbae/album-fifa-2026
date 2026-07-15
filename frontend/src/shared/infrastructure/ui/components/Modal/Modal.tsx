@@ -1,4 +1,5 @@
 import { useEffect, useRef, type ReactNode, type SyntheticEvent } from 'react';
+import { ui } from '../../uiStrings.js';
 import styles from './Modal.module.css';
 
 interface ModalProps {
@@ -46,7 +47,7 @@ export function Modal(props: ModalProps) {
             {props.title}
           </h2>
           <button type="button" className={styles.closeButton} onClick={props.onClose}>
-            Close
+            {ui.close}
           </button>
         </header>
         <div className={styles.body}>{props.children}</div>

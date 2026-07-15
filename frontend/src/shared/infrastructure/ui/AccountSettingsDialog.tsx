@@ -5,6 +5,7 @@ import { useId, useState } from 'react';
 import { canUserChangePassword } from './authViews.js';
 import { Modal } from './components/Modal/Modal.js';
 import { supabase } from '../supabaseClient.js';
+import { ui } from './uiStrings.js';
 import styles from './AccountSettingsDialog.module.css';
 
 interface AccountSettingsDialogProps {
@@ -43,7 +44,7 @@ export function AccountSettingsDialog(props: AccountSettingsDialogProps) {
     if (changePasswordState.password !== changePasswordState.confirmPassword) {
       setChangePasswordState((prev) => ({
         ...prev,
-        error: Maybe.some('Passwords do not match.'),
+        error: Maybe.some(ui.passwordsDoNotMatch),
         message: Maybe.none(),
       }));
       return;
@@ -76,23 +77,28 @@ export function AccountSettingsDialog(props: AccountSettingsDialogProps) {
       confirmPassword: '',
       loading: false,
       error: Maybe.none(),
-      message: Maybe.some('Password updated successfully.'),
+      message: Maybe.some(ui.account.passwordUpdated),
     });
   };
 
   return (
-    <Modal open={props.open} title="Account settings" titleId={titleId} onClose={props.onClose}>
+    <Modal
+      open={props.open}
+      title={ui.account.settingsTitle}
+      titleId={titleId}
+      onClose={props.onClose}
+    >
       <div className={styles.section}>
-        <p className={styles.emailLabel}>Email</p>
-        <p className={styles.emailValue}>{props.user.email ?? 'Signed in'}</p>
+        <p className={styles.emailLabel}>{ui.email}</p>
+        <p className={styles.emailValue}>{props.user.email ?? ui.signedIn}</p>
 
         {showChangePassword ? (
           <>
             <hr className={styles.divider} />
-            <form aria-label="Change password" onSubmit={handleChangePassword}>
+            <form aria-label={ui.account.changePassword} onSubmit={handleChangePassword}>
               <div className={styles.section}>
                 <label className={styles.label} htmlFor="account-new-password">
-                  New password
+                  {ui.newPassword}
                 </label>
                 <input
                   id="account-new-password"
@@ -112,7 +118,7 @@ export function AccountSettingsDialog(props: AccountSettingsDialogProps) {
                 />
 
                 <label className={styles.label} htmlFor="account-confirm-password">
-                  Confirm password
+                  {ui.confirmPassword}
                 </label>
                 <input
                   id="account-confirm-password"
@@ -148,27 +154,22 @@ export function AccountSettingsDialog(props: AccountSettingsDialogProps) {
                   type="submit"
                   disabled={changePasswordState.loading}
                 >
-                  {changePasswordState.loading ? 'Please wait…' : 'Update password'}
+                  {changePasswordState.loading ? ui.pleaseWait : ui.account.updatePassword}
                 </button>
               </div>
             </form>
           </>
         ) : (
-          <p className={styles.note}>
-            Password changes are not available for magic-link-only accounts.
-          </p>
+          <p className={styles.note}>{ui.account.magicLinkOnlyNote}</p>
         )}
 
         <hr className={styles.divider} />
 
         <button type="button" className={styles.signOutButton} onClick={props.onSignOut}>
-          Sign out
+          {ui.account.signOut}
         </button>
 
-        <p className={styles.note}>
-          To delete your account, contact support or use the Supabase dashboard if self-service
-          deletion is enabled for this project.
-        </p>
+        <p className={styles.note}>{ui.account.deleteAccountNote}</p>
       </div>
     </Modal>
   );

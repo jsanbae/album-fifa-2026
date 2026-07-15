@@ -1,5 +1,6 @@
 import { Maybe } from '@album/common';
 import { useState } from 'react';
+import { ui } from '../../../../shared/infrastructure/ui/uiStrings.js';
 import type {
   CollectionApiAdapter,
   CollectionEntryDTO,
@@ -58,7 +59,7 @@ export function useCollection(adapter: CollectionApiAdapter) {
         error: Maybe.none(),
       });
     } catch (error) {
-      setError(error instanceof Error ? error.message : 'Failed to load collection');
+      setError(error instanceof Error ? error.message : ui.errors.loadCollection);
     }
   };
 
@@ -107,7 +108,7 @@ export function useCollection(adapter: CollectionApiAdapter) {
       }));
     } catch (error) {
       applyOptimisticCount(stickerId, previousCount);
-      setError(error instanceof Error ? error.message : 'Failed to increment sticker');
+      setError(error instanceof Error ? error.message : ui.errors.incrementSticker);
     }
   };
 
@@ -123,7 +124,7 @@ export function useCollection(adapter: CollectionApiAdapter) {
       }));
     } catch (error) {
       applyOptimisticCount(stickerId, previousCount);
-      setError(error instanceof Error ? error.message : 'Failed to decrement sticker');
+      setError(error instanceof Error ? error.message : ui.errors.decrementSticker);
     }
   };
 
@@ -167,7 +168,7 @@ export function useCollection(adapter: CollectionApiAdapter) {
       setState((prev) => ({ ...prev, loading: false, error: Maybe.none() }));
       return result;
     } catch (error) {
-      setError(error instanceof Error ? error.message : 'Failed to register stickers');
+      setError(error instanceof Error ? error.message : ui.errors.registerStickers);
       return null;
     }
   };

@@ -1,0 +1,108 @@
+import type { AuthView } from './authViews.js';
+
+export const ui = {
+  pleaseWait: 'Espera…',
+  or: 'o',
+  close: 'Cerrar',
+  email: 'Correo',
+  password: 'Contraseña',
+  confirmPassword: 'Confirmar contraseña',
+  newPassword: 'Nueva contraseña',
+  signedIn: 'Sesión iniciada',
+  loading: 'Cargando',
+  loadingSession: 'Cargando sesión…',
+  passwordsDoNotMatch: 'Las contraseñas no coinciden.',
+  supabaseNotConfigured:
+    'Supabase no está configurado. Define VITE_SUPABASE_URL y VITE_SUPABASE_PUBLISHABLE_KEY.',
+
+  auth: {
+    signIn: 'Iniciar sesión',
+    signUp: 'Crear cuenta',
+    forgotPassword: 'Olvidé mi contraseña',
+    sendResetLink: 'Enviar enlace de restablecimiento',
+    sendMagicLink: 'Enviar enlace mágico',
+    createAccount: 'Crear cuenta',
+    backToSignIn: 'Volver a iniciar sesión',
+    emailPassword: 'Correo y contraseña',
+    magicLink: 'Enlace mágico',
+    signInMethod: 'Método de inicio de sesión',
+    signInWithGoogle: 'Iniciar sesión con Google',
+    formSignIn: 'Iniciar sesión',
+    formSignUp: 'Crear cuenta',
+    formForgotPassword: 'Olvidé mi contraseña',
+    formResetPassword: 'Restablecer contraseña',
+    saveNewPassword: 'Guardar nueva contraseña',
+    magicLinkSent: 'Revisa tu correo para el enlace mágico.',
+    confirmAccountEmail: 'Revisa tu correo para confirmar tu cuenta.',
+    resetLinkSent: 'Revisa tu correo para el enlace de restablecimiento.',
+    redirectingGoogle: 'Redirigiendo a Google, espera…',
+    creatingAccount: 'Creando cuenta, espera…',
+    sendingResetLink: 'Enviando enlace de restablecimiento, espera…',
+    signingIn: 'Iniciando sesión, espera…',
+    sendingMagicLink: 'Enviando enlace mágico, espera…',
+    updatingPassword: 'Actualizando contraseña, espera…',
+  },
+
+  account: {
+    toolbar: 'Cuenta',
+    account: 'Cuenta',
+    signOut: 'Cerrar sesión',
+    settingsTitle: 'Configuración de cuenta',
+    changePassword: 'Cambiar contraseña',
+    updatePassword: 'Actualizar contraseña',
+    passwordUpdated: 'Contraseña actualizada correctamente.',
+    magicLinkOnlyNote:
+      'El cambio de contraseña no está disponible para cuentas solo con enlace mágico.',
+    deleteAccountNote:
+      'Para eliminar tu cuenta, contacta con soporte o usa el panel de Supabase si la eliminación self-service está habilitada en este proyecto.',
+  },
+
+  album: {
+    authHint: 'Inicia sesión para llevar tu colección',
+    expandAll: 'Expandir todo',
+    collapseAll: 'Contraer todo',
+    loadingStickers: 'Cargando cromos…',
+    noStickersLoaded: 'No hay cromos cargados.',
+    noStickersMatch: 'Ningún cromo coincide con tus filtros.',
+    addCodes: 'Agregar códigos',
+    registerByCodeAria: 'Registrar cromos por código',
+    searchLabel: 'Buscar por número o nombre',
+    searchPlaceholder: 'ej. MEX3, Yamal',
+    filterStickers: 'Filtrar cromos',
+    filterAll: 'Todos',
+    filterMissing: 'Faltantes',
+    filterCollected: 'Conseguidas',
+    filterDuplicates: 'Repetidas',
+    duplicate: 'Repetida',
+    decreaseCount: (stickerId: string) => `Disminuir cantidad del cromo ${stickerId}`,
+    increaseCount: (stickerId: string) => `Aumentar cantidad del cromo ${stickerId}`,
+    progress: 'Progreso',
+  },
+
+  register: {
+    modalTitle: 'Registrar cromos',
+    label: 'Registrar por código',
+    placeholder: 'ej. MEX1, FWC3, CC1',
+    submit: 'Registrar',
+    unrecognized: (codes: string) => `Códigos no reconocidos: ${codes}`,
+    registeredOne: 'Se registró 1 cromo.',
+    registeredMany: (count: number) => `Se registraron ${count} cromos.`,
+  },
+
+  errors: {
+    loadCatalog: 'No se pudo cargar el catálogo',
+    loadStickers: 'No se pudieron cargar los cromos',
+    loadCollection: 'No se pudo cargar la colección',
+    incrementSticker: 'No se pudo aumentar el cromo',
+    decrementSticker: 'No se pudo disminuir el cromo',
+    registerStickers: 'No se pudieron registrar los cromos',
+  },
+} as const;
+
+export const AUTH_SUBTITLES: Record<AuthView, string> = {
+  'sign-in': 'Inicia sesión para llevar tu álbum de cromos',
+  'sign-up': 'Crea una cuenta para guardar tu colección',
+  'forgot-password': 'Te enviaremos un enlace de restablecimiento por correo',
+};
+
+export const RESET_PASSWORD_SUBTITLE = 'Elige una nueva contraseña';

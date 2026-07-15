@@ -27,7 +27,7 @@ describe('StickerListRow', () => {
   it('shows duplicate badge when count is at least 2', () => {
     renderRow(mexicoSticker, { count: 2 });
 
-    expect(screen.getByText('Duplicate')).toBeInTheDocument();
+    expect(screen.getByText('Repetida')).toBeInTheDocument();
   });
 
   it('hides duplicate badge when count is 0 or 1', () => {
@@ -45,7 +45,7 @@ describe('StickerListRow', () => {
   it('exposes accessible duplicate text on the badge', () => {
     renderRow(mexicoSticker, { count: 3 });
 
-    expect(screen.getByLabelText('Duplicate')).toBeInTheDocument();
+    expect(screen.getByLabelText('Repetida')).toBeInTheDocument();
   });
 
   it('shows FIFA icon for FIFA World Cup stickers without a country flag', () => {

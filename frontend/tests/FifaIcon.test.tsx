@@ -18,6 +18,6 @@ describe('FifaIcon', () => {
   it('uses a trimmed viewBox', () => {
     render(<FifaIcon />);
     const icon = screen.getByRole('img', { name: 'FIFA World Cup' });
-    expect(icon.getAttribute('viewBox')).toBe('0 0 67 24');
+    expect(icon.getAttribute('viewBox')).toBe('0 0 27 16');
   });
 });

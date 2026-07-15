@@ -27,7 +27,7 @@ describe('CocaColaIcon', () => {
   it('uses a trimmed viewBox for legibility', () => {
     render(<CocaColaIcon />);
     const icon = screen.getByRole('img', { name: 'Coca-Cola' });
-    expect(icon.getAttribute('viewBox')).toBe('4 3 172 41');
+    expect(icon.getAttribute('viewBox')).toBe('0 13 40 15');
   });
 
   it('renders with height-aligned md class when used in GroupIcon', () => {

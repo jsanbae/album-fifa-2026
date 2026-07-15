@@ -63,8 +63,8 @@ describe('The SignInForm', () => {
     expect(screen.getByRole('img', { name: 'FIFA World Cup 2026' })).toBeInTheDocument();
     expect(screen.getByRole('img', { name: 'Panini' })).toBeInTheDocument();
 
-    const passwordMode = screen.getByRole('button', { name: 'Email & password' });
-    const magicLinkMode = screen.getByRole('button', { name: 'Magic link' });
+    const passwordMode = screen.getByRole('button', { name: 'Correo y contraseña' });
+    const magicLinkMode = screen.getByRole('button', { name: 'Enlace mágico' });
 
     expect(passwordMode).toHaveAttribute('aria-pressed', 'true');
     expect(magicLinkMode).toHaveAttribute('aria-pressed', 'false');
@@ -78,40 +78,40 @@ describe('The SignInForm', () => {
   it('groups sign-in method choices for assistive technologies', () => {
     render(<SignInForm onSignedIn={vi.fn()} />);
 
-    expect(screen.getByRole('group', { name: 'Sign-in method' })).toBeInTheDocument();
+    expect(screen.getByRole('group', { name: 'Método de inicio de sesión' })).toBeInTheDocument();
   });
 
   it('announces loading state while sign-in is in progress', async () => {
     render(<SignInForm onSignedIn={vi.fn()} />);
 
-    fireEvent.change(screen.getByLabelText('Email'), {
+    fireEvent.change(screen.getByLabelText('Correo'), {
       target: { value: 'collector@example.com' },
     });
-    fireEvent.change(screen.getByLabelText('Password'), {
+    fireEvent.change(screen.getByLabelText('Contraseña'), {
       target: { value: 'secret-pass' },
     });
-    fireEvent.click(screen.getByRole('button', { name: 'Sign in' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Iniciar sesión' }));
 
-    expect(screen.getByRole('form', { name: 'Sign in' })).toHaveAttribute('aria-busy', 'true');
+    expect(screen.getByRole('form', { name: 'Iniciar sesión' })).toHaveAttribute('aria-busy', 'true');
 
     await waitFor(() => {
       const status = screen.getByRole('status');
       expect(status).toHaveAttribute('aria-live', 'polite');
-      expect(status).toHaveTextContent('Signing in, please wait.');
+      expect(status).toHaveTextContent('Iniciando sesión, espera…');
     });
   });
 
   it('announces a distinct loading message for magic link requests', async () => {
     render(<SignInForm onSignedIn={vi.fn()} />);
 
-    fireEvent.click(screen.getByRole('button', { name: 'Magic link' }));
-    fireEvent.change(screen.getByLabelText('Email'), {
+    fireEvent.click(screen.getByRole('button', { name: 'Enlace mágico' }));
+    fireEvent.change(screen.getByLabelText('Correo'), {
       target: { value: 'collector@example.com' },
     });
-    fireEvent.click(screen.getByRole('button', { name: 'Send magic link' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Enviar enlace mágico' }));
 
     await waitFor(() => {
-      expect(screen.getByRole('status')).toHaveTextContent('Sending magic link, please wait.');
+      expect(screen.getByRole('status')).toHaveTextContent('Enviando enlace mágico, espera…');
     });
   });
 
@@ -137,18 +137,18 @@ describe('The SignInForm', () => {
   it('navigates between sign-in, sign-up, and forgot-password views', () => {
     render(<SignInForm onSignedIn={vi.fn()} />);
 
-    expect(screen.getByRole('form', { name: 'Sign in' })).toBeInTheDocument();
+    expect(screen.getByRole('form', { name: 'Iniciar sesión' })).toBeInTheDocument();
 
-    fireEvent.click(screen.getByRole('button', { name: 'Create account' }));
-    expect(screen.getByRole('form', { name: 'Sign up' })).toBeInTheDocument();
-    expect(screen.getByLabelText('Confirm password')).toBeInTheDocument();
+    fireEvent.click(screen.getByRole('button', { name: 'Crear cuenta' }));
+    expect(screen.getByRole('form', { name: 'Crear cuenta' })).toBeInTheDocument();
+    expect(screen.getByLabelText('Confirmar contraseña')).toBeInTheDocument();
 
-    fireEvent.click(screen.getByRole('button', { name: 'Back to sign in' }));
-    expect(screen.getByRole('form', { name: 'Sign in' })).toBeInTheDocument();
+    fireEvent.click(screen.getByRole('button', { name: 'Volver a iniciar sesión' }));
+    expect(screen.getByRole('form', { name: 'Iniciar sesión' })).toBeInTheDocument();
 
-    fireEvent.click(screen.getByRole('button', { name: 'Forgot password' }));
-    expect(screen.getByRole('form', { name: 'Forgot password' })).toBeInTheDocument();
-    expect(screen.queryByLabelText('Password')).not.toBeInTheDocument();
+    fireEvent.click(screen.getByRole('button', { name: 'Olvidé mi contraseña' }));
+    expect(screen.getByRole('form', { name: 'Olvidé mi contraseña' })).toBeInTheDocument();
+    expect(screen.queryByLabelText('Contraseña')).not.toBeInTheDocument();
   });
 
   it('calls signUp and shows a success message after sign up', async () => {
@@ -158,17 +158,17 @@ describe('The SignInForm', () => {
 
     render(<SignInForm onSignedIn={vi.fn()} />);
 
-    fireEvent.click(screen.getByRole('button', { name: 'Create account' }));
-    fireEvent.change(screen.getByLabelText('Email'), {
+    fireEvent.click(screen.getByRole('button', { name: 'Crear cuenta' }));
+    fireEvent.change(screen.getByLabelText('Correo'), {
       target: { value: 'new@example.com' },
     });
-    fireEvent.change(screen.getByLabelText('Password'), {
+    fireEvent.change(screen.getByLabelText('Contraseña'), {
       target: { value: 'secret-pass' },
     });
-    fireEvent.change(screen.getByLabelText('Confirm password'), {
+    fireEvent.change(screen.getByLabelText('Confirmar contraseña'), {
       target: { value: 'secret-pass' },
     });
-    fireEvent.click(screen.getByRole('button', { name: 'Create account' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Crear cuenta' }));
 
     await waitFor(() => {
       expect(signUp).toHaveBeenCalledWith({
@@ -176,7 +176,7 @@ describe('The SignInForm', () => {
         password: 'secret-pass',
         options: { emailRedirectTo: window.location.origin },
       });
-      expect(screen.getByRole('status')).toHaveTextContent('Check your email to confirm your account.');
+      expect(screen.getByRole('status')).toHaveTextContent('Revisa tu correo para confirmar tu cuenta.');
     });
   });
 
@@ -190,17 +190,17 @@ describe('The SignInForm', () => {
 
     render(<SignInForm onSignedIn={vi.fn()} />);
 
-    fireEvent.click(screen.getByRole('button', { name: 'Create account' }));
-    fireEvent.change(screen.getByLabelText('Email'), {
+    fireEvent.click(screen.getByRole('button', { name: 'Crear cuenta' }));
+    fireEvent.change(screen.getByLabelText('Correo'), {
       target: { value: 'new@example.com' },
     });
-    fireEvent.change(screen.getByLabelText('Password'), {
+    fireEvent.change(screen.getByLabelText('Contraseña'), {
       target: { value: 'short' },
     });
-    fireEvent.change(screen.getByLabelText('Confirm password'), {
+    fireEvent.change(screen.getByLabelText('Confirmar contraseña'), {
       target: { value: 'short' },
     });
-    fireEvent.click(screen.getByRole('button', { name: 'Create account' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Crear cuenta' }));
 
     await waitFor(() => {
       expect(screen.getByRole('alert')).toHaveTextContent('Password should be at least 6 characters');
@@ -214,30 +214,30 @@ describe('The SignInForm', () => {
 
     render(<SignInForm onSignedIn={vi.fn()} />);
 
-    fireEvent.click(screen.getByRole('button', { name: 'Forgot password' }));
-    fireEvent.change(screen.getByLabelText('Email'), {
+    fireEvent.click(screen.getByRole('button', { name: 'Olvidé mi contraseña' }));
+    fireEvent.change(screen.getByLabelText('Correo'), {
       target: { value: 'collector@example.com' },
     });
-    fireEvent.click(screen.getByRole('button', { name: 'Send reset link' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Enviar enlace de restablecimiento' }));
 
     await waitFor(() => {
       expect(resetPasswordForEmail).toHaveBeenCalledWith('collector@example.com', {
         redirectTo: window.location.origin,
       });
       expect(screen.getByRole('status')).toHaveTextContent(
-        'Check your email for the password reset link.',
+        'Revisa tu correo para el enlace de restablecimiento.',
       );
     });
   });
 
-  it('shows Sign in with Google on sign-in and hides it on forgot-password', () => {
+  it('shows Iniciar sesión con Google on sign-in and hides it on forgot-password', () => {
     render(<SignInForm onSignedIn={vi.fn()} />);
 
-    expect(screen.getByRole('button', { name: 'Sign in with Google' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Iniciar sesión con Google' })).toBeInTheDocument();
 
-    fireEvent.click(screen.getByRole('button', { name: 'Forgot password' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Olvidé mi contraseña' }));
 
-    expect(screen.queryByRole('button', { name: 'Sign in with Google' })).not.toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: 'Iniciar sesión con Google' })).not.toBeInTheDocument();
   });
 
   it('starts Google OAuth with redirect to the app origin', async () => {
@@ -245,7 +245,7 @@ describe('The SignInForm', () => {
 
     render(<SignInForm onSignedIn={vi.fn()} />);
 
-    fireEvent.click(screen.getByRole('button', { name: 'Sign in with Google' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Iniciar sesión con Google' }));
 
     await waitFor(() => {
       expect(supabaseAuth.signInWithOAuth).toHaveBeenCalledWith({
@@ -260,11 +260,11 @@ describe('The SignInForm', () => {
 
     render(<SignInForm onSignedIn={vi.fn()} />);
 
-    fireEvent.click(screen.getByRole('button', { name: 'Sign in with Google' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Iniciar sesión con Google' }));
 
     await waitFor(() => {
       expect(screen.getByRole('alert')).toHaveTextContent(
-        'Supabase is not configured. Set VITE_SUPABASE_URL and VITE_SUPABASE_PUBLISHABLE_KEY.',
+        'Supabase no está configurado. Define VITE_SUPABASE_URL y VITE_SUPABASE_PUBLISHABLE_KEY.',
       );
     });
     expect(supabaseAuth.signInWithOAuth).not.toHaveBeenCalled();
@@ -278,11 +278,11 @@ describe('The SignInForm', () => {
 
     render(<SignInForm onSignedIn={vi.fn()} />);
 
-    fireEvent.click(screen.getByRole('button', { name: 'Sign in with Google' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Iniciar sesión con Google' }));
 
     await waitFor(() => {
       expect(screen.getByRole('alert')).toHaveTextContent('Provider is not enabled');
     });
-    expect(screen.getByRole('button', { name: 'Sign in with Google' })).not.toBeDisabled();
+    expect(screen.getByRole('button', { name: 'Iniciar sesión con Google' })).not.toBeDisabled();
   });
 });

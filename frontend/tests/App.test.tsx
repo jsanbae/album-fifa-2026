@@ -19,8 +19,8 @@ describe('The App shell in dev mode', () => {
       expect(screen.getByTestId('sticker-list-page')).toBeInTheDocument();
     });
 
-    expect(screen.queryByRole('form', { name: 'Sign in' })).not.toBeInTheDocument();
-    expect(screen.queryByRole('banner', { name: 'Account' })).not.toBeInTheDocument();
+    expect(screen.queryByRole('form', { name: 'Iniciar sesión' })).not.toBeInTheDocument();
+    expect(screen.queryByRole('banner', { name: 'Cuenta' })).not.toBeInTheDocument();
   });
 });
 

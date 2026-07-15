@@ -19,13 +19,13 @@ describe('The ResetPasswordForm', () => {
 
     render(<ResetPasswordForm onComplete={onComplete} />);
 
-    fireEvent.change(screen.getByLabelText('New password'), {
+    fireEvent.change(screen.getByLabelText('Nueva contraseña'), {
       target: { value: 'new-secret-pass' },
     });
-    fireEvent.change(screen.getByLabelText('Confirm password'), {
+    fireEvent.change(screen.getByLabelText('Confirmar contraseña'), {
       target: { value: 'new-secret-pass' },
     });
-    fireEvent.click(screen.getByRole('button', { name: 'Save new password' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Guardar nueva contraseña' }));
 
     await waitFor(() => {
       expect(updateUser).toHaveBeenCalledWith({ password: 'new-secret-pass' });

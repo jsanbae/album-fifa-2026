@@ -1,5 +1,6 @@
 import { Maybe } from '@album/common';
 import { useState } from 'react';
+import { ui } from '../../../../shared/infrastructure/ui/uiStrings.js';
 import type {
   CatalogApiAdapter,
   CountryDTO,
@@ -58,7 +59,7 @@ export function useCatalog(adapter: CatalogApiAdapter) {
       }));
       await loadStickersInternal('all', '', countries, groups);
     } catch (error) {
-      setError(error instanceof Error ? error.message : 'Failed to load catalog');
+      setError(error instanceof Error ? error.message : ui.errors.loadCatalog);
     }
   };
 
@@ -92,7 +93,7 @@ export function useCatalog(adapter: CatalogApiAdapter) {
         error: Maybe.none(),
       }));
     } catch (error) {
-      setError(error instanceof Error ? error.message : 'Failed to load stickers');
+      setError(error instanceof Error ? error.message : ui.errors.loadStickers);
     }
   };
 

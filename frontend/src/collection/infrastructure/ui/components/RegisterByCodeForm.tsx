@@ -1,4 +1,5 @@
 import { useState, type FormEvent } from 'react';
+import { ui } from '../../../../shared/infrastructure/ui/uiStrings.js';
 import type { RegisterStickersByCodeResultDTO } from '../../adapters/CollectionApiAdapter.js';
 import styles from './RegisterByCodeForm.module.css';
 
@@ -38,13 +39,13 @@ export function RegisterByCodeForm(props: RegisterByCodeFormProps) {
     }
 
     if (result.unknownCodes.length > 0) {
-      setFeedback(`Unrecognized codes: ${result.unknownCodes.join(', ')}`);
+      setFeedback(ui.register.unrecognized(result.unknownCodes.join(', ')));
       return;
     }
 
     if (result.updated.length > 0) {
       const count = result.updated.length;
-      setFeedback(`Registered ${count} sticker${count === 1 ? '' : 's'}.`);
+      setFeedback(count === 1 ? ui.register.registeredOne : ui.register.registeredMany(count));
       props.onSuccess?.();
     }
   };
@@ -52,7 +53,7 @@ export function RegisterByCodeForm(props: RegisterByCodeFormProps) {
   return (
     <form className={styles.form} onSubmit={handleSubmit}>
       <label className={styles.label} htmlFor="register-by-code">
-        Register by code
+        {ui.register.label}
       </label>
       <div className={styles.controls}>
         <input
@@ -61,12 +62,12 @@ export function RegisterByCodeForm(props: RegisterByCodeFormProps) {
           type="text"
           value={codes}
           onChange={(event) => setCodes(event.target.value)}
-          placeholder="e.g. MEX1, FWC3, CC1"
+          placeholder={ui.register.placeholder}
           disabled={isBusy}
           autoComplete="off"
         />
         <button type="submit" className={styles.button} disabled={!canSubmit}>
-          Register
+          {ui.register.submit}
         </button>
       </div>
       {feedback && (
