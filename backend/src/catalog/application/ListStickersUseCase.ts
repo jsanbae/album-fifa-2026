@@ -23,6 +23,10 @@ export class ListStickersUseCase {
       filtered = filtered.filter((sticker) => sticker.group === input.group);
     }
 
+    if (input.country) {
+      filtered = filtered.filter((sticker) => sticker.countryId === input.country);
+    }
+
     if (input.search?.trim()) {
       filtered = filtered.filter((sticker) => matchesStickerSearch(sticker, input.search!));
     }

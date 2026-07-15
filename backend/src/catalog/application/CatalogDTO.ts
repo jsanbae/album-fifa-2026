@@ -22,5 +22,6 @@ export interface GroupDTO {
 
 export interface ListStickersInput {
   group?: string;
+  country?: string;
   search?: string;
 }

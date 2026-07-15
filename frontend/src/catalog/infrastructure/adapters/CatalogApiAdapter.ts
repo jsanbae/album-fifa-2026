@@ -25,6 +25,7 @@ export interface GroupDTO {
 
 export interface FetchStickersParams {
   group?: string;
+  country?: string;
   search?: string;
 }
 
@@ -34,6 +35,7 @@ export class CatalogApiAdapter {
   fetchStickers(params?: FetchStickersParams): Promise<StickerDTO[]> {
     return this.httpClient.get<StickerDTO[]>(API_ROUTES.catalog.stickers, {
       group: params?.group,
+      country: params?.country,
       search: params?.search,
     });
   }

@@ -120,7 +120,7 @@ export function StickerListPage(props: StickerListPageProps) {
       (stickers) => {
         const filtered = filterStickersByOwnership(
           stickers,
-          props.catalogHook.filter,
+          props.catalogHook.ownershipFilter,
           props.collectionHook.getCount,
         );
 
@@ -222,8 +222,11 @@ export function StickerListPage(props: StickerListPageProps) {
       />
 
       <FilterChips
-        activeFilter={props.catalogHook.filter}
-        onFilterChange={(filter) => props.catalogHook.setFilter(filter)}
+        ownershipFilter={props.catalogHook.ownershipFilter}
+        scopeFilter={props.catalogHook.scopeFilter}
+        countries={props.catalogHook.countries.getOrElse([])}
+        onOwnershipChange={(filter) => props.catalogHook.setOwnershipFilter(filter)}
+        onScopeChange={(scope) => props.catalogHook.setScopeFilter(scope)}
       />
 
       <div className={styles.sections}>{displayContent()}</div>

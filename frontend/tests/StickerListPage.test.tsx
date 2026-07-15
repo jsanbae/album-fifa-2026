@@ -12,13 +12,15 @@ function createCatalogHook(
     stickers: Maybe.none(),
     countries: Maybe.none(),
     groups: Maybe.none(),
-    filter: 'all',
+    ownershipFilter: 'all',
+    scopeFilter: { kind: 'none' },
     search: '',
     loading: false,
     error: Maybe.none(),
     loadCatalog: vi.fn(),
     loadStickers: vi.fn(),
-    setFilter: vi.fn(),
+    setOwnershipFilter: vi.fn(),
+    setScopeFilter: vi.fn(),
     setSearch: vi.fn(),
     updateStickerCount: vi.fn(),
     ...overrides,
@@ -228,7 +230,7 @@ describe('The StickerListPage', () => {
     render(
       <StickerListPage
         catalogHook={createCatalogHook({
-          filter: 'collected',
+          ownershipFilter: 'collected',
           stickers: Maybe.some([
             {
               id: 'MEX1',
@@ -269,11 +271,53 @@ describe('The StickerListPage', () => {
     expect(screen.queryByText('MEX Player 2')).not.toBeInTheDocument();
   });
 
+  it('applies ownership filter with country-scoped sticker list', () => {
+    render(
+      <StickerListPage
+        catalogHook={createCatalogHook({
+          ownershipFilter: 'missing',
+          scopeFilter: { kind: 'country', id: 'MEX' },
+          countries: Maybe.some([
+            { id: 'MEX', name: 'México', isoCode: 'MX', groupId: 'A' },
+          ]),
+          stickers: Maybe.some([
+            {
+              id: 'MEX1',
+              name: 'MEX Player 1',
+              group: 'Grupo A',
+              countryId: 'MEX',
+              countryName: 'México',
+              isoCode: 'mx',
+            },
+            {
+              id: 'MEX2',
+              name: 'MEX Player 2',
+              group: 'Grupo A',
+              countryId: 'MEX',
+              countryName: 'México',
+              isoCode: 'mx',
+            },
+          ]),
+        })}
+        collectionHook={createCollectionHook({
+          counts: { MEX1: 1 },
+          getCount: (stickerId) => (stickerId === 'MEX1' ? 1 : 0),
+        })}
+        isAuthenticated
+      />,
+    );
+
+    expect(screen.getByText('MEX Player 2')).toBeInTheDocument();
+    expect(screen.queryByText('MEX Player 1')).not.toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'México' })).toHaveAttribute('aria-pressed', 'true');
+    expect(screen.getByRole('button', { name: 'Faltantes' })).toHaveAttribute('aria-pressed', 'true');
+  });
+
   it('shows only duplicate stickers when the duplicates filter is active', () => {
     render(
       <StickerListPage
         catalogHook={createCatalogHook({
-          filter: 'duplicates',
+          ownershipFilter: 'duplicates',
           stickers: Maybe.some([
             {
               id: 'MEX1',

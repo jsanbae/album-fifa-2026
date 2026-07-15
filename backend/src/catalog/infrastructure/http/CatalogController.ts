@@ -17,6 +17,7 @@ export class CatalogController {
   async listStickers(req: Request, res: Response): Promise<void> {
     try {
       const group = typeof req.query.group === 'string' ? req.query.group : undefined;
+      const country = typeof req.query.country === 'string' ? req.query.country : undefined;
       const search = typeof req.query.search === 'string' ? req.query.search : undefined;
 
       const userId = (req as Request & { userId?: UserId }).userId;
@@ -27,7 +28,10 @@ export class CatalogController {
         countsByStickerId = new Map(collection.map((entry) => [entry.stickerId, entry.count]));
       }
 
-      const stickers = await this.listStickersUseCase.execute({ group, search }, countsByStickerId);
+      const stickers = await this.listStickersUseCase.execute(
+        { group, country, search },
+        countsByStickerId,
+      );
       res.json(stickers);
     } catch (error) {
       this.handleError(error, res);

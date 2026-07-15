@@ -49,6 +49,14 @@ describe('API e2e', () => {
     expect(response.body.every((s: { group: string }) => s.group === 'Grupo A')).toBe(true);
   });
 
+  it('filters stickers by country query param', async () => {
+    const app = createServer();
+    const response = await request(app).get(`${API_ROUTES.catalog.stickers}?country=MEX`);
+    expect(response.status).toBe(200);
+    expect(response.body.map((s: { id: string }) => s.id)).toEqual(['MEX1', 'MEX2']);
+    expect(response.body.every((s: { countryId: string }) => s.countryId === 'MEX')).toBe(true);
+  });
+
   it('lists countries and groups', async () => {
     const app = createServer();
     const countries = await request(app).get(API_ROUTES.catalog.countries);

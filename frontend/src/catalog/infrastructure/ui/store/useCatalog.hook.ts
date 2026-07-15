@@ -8,13 +8,19 @@ import type {
   StickerDTO,
 } from '../../adapters/CatalogApiAdapter.js';
 
-export type CatalogFilter = 'all' | 'missing' | 'collected' | 'duplicates' | string;
+export type OwnershipFilter = 'all' | 'missing' | 'collected' | 'duplicates';
+
+export type ScopeFilter =
+  | { kind: 'none' }
+  | { kind: 'group'; name: string }
+  | { kind: 'country'; id: string };
 
 interface CatalogState {
   stickers: Maybe<StickerDTO[]>;
   countries: Maybe<CountryDTO[]>;
   groups: Maybe<GroupDTO[]>;
-  filter: CatalogFilter;
+  ownershipFilter: OwnershipFilter;
+  scopeFilter: ScopeFilter;
   search: string;
   loading: boolean;
   error: Maybe<string>;
@@ -24,11 +30,33 @@ const initialState: CatalogState = {
   stickers: Maybe.none(),
   countries: Maybe.none(),
   groups: Maybe.none(),
-  filter: 'all',
+  ownershipFilter: 'all',
+  scopeFilter: { kind: 'none' },
   search: '',
   loading: false,
   error: Maybe.none(),
 };
+
+function buildFetchParams(scopeFilter: ScopeFilter, search: string) {
+  return {
+    group: scopeFilter.kind === 'group' ? scopeFilter.name : undefined,
+    country: scopeFilter.kind === 'country' ? scopeFilter.id : undefined,
+    search: search || undefined,
+  };
+}
+
+function isSameScope(a: ScopeFilter, b: ScopeFilter): boolean {
+  if (a.kind !== b.kind) {
+    return false;
+  }
+  if (a.kind === 'group' && b.kind === 'group') {
+    return a.name === b.name;
+  }
+  if (a.kind === 'country' && b.kind === 'country') {
+    return a.id === b.id;
+  }
+  return a.kind === 'none' && b.kind === 'none';
+}
 
 export function useCatalog(adapter: CatalogApiAdapter) {
   const [state, setState] = useState<CatalogState>(initialState);
@@ -57,37 +85,29 @@ export function useCatalog(adapter: CatalogApiAdapter) {
         countries: Maybe.some(countries),
         groups: Maybe.some(groups),
       }));
-      await loadStickersInternal('all', '', countries, groups);
+      await loadStickersInternal('all', { kind: 'none' }, '', countries, groups);
     } catch (error) {
       setError(error instanceof Error ? error.message : ui.errors.loadCatalog);
     }
   };
 
   const loadStickersInternal = async (
-    filter: CatalogFilter,
+    ownershipFilter: OwnershipFilter,
+    scopeFilter: ScopeFilter,
     search: string,
     countries?: CountryDTO[],
     groups?: GroupDTO[],
   ) => {
     startLoading();
     try {
-      const groupParam =
-        filter !== 'all' &&
-        filter !== 'missing' &&
-        filter !== 'collected' &&
-        filter !== 'duplicates'
-          ? filter
-          : undefined;
-      const stickers = await adapter.fetchStickers({
-        group: groupParam,
-        search: search || undefined,
-      });
+      const stickers = await adapter.fetchStickers(buildFetchParams(scopeFilter, search));
       setState((prev) => ({
         ...prev,
         stickers: Maybe.some(stickers),
         countries: countries ? Maybe.some(countries) : prev.countries,
         groups: groups ? Maybe.some(groups) : prev.groups,
-        filter,
+        ownershipFilter,
+        scopeFilter,
         search,
         loading: false,
         error: Maybe.none(),
@@ -98,15 +118,22 @@ export function useCatalog(adapter: CatalogApiAdapter) {
   };
 
   const loadStickers = async () => {
-    await loadStickersInternal(state.filter, state.search);
+    await loadStickersInternal(state.ownershipFilter, state.scopeFilter, state.search);
   };
 
-  const setFilter = async (filter: CatalogFilter) => {
-    await loadStickersInternal(filter, state.search);
+  const setOwnershipFilter = async (ownershipFilter: OwnershipFilter) => {
+    await loadStickersInternal(ownershipFilter, state.scopeFilter, state.search);
+  };
+
+  const setScopeFilter = async (scopeFilter: ScopeFilter) => {
+    const nextScope = isSameScope(state.scopeFilter, scopeFilter)
+      ? ({ kind: 'none' } as const)
+      : scopeFilter;
+    await loadStickersInternal(state.ownershipFilter, nextScope, state.search);
   };
 
   const setSearch = async (search: string) => {
-    await loadStickersInternal(state.filter, search);
+    await loadStickersInternal(state.ownershipFilter, state.scopeFilter, search);
   };
 
   const updateStickerCount = (stickerId: string, count: number) => {
@@ -129,13 +156,15 @@ export function useCatalog(adapter: CatalogApiAdapter) {
     stickers: state.stickers,
     countries: state.countries,
     groups: state.groups,
-    filter: state.filter,
+    ownershipFilter: state.ownershipFilter,
+    scopeFilter: state.scopeFilter,
     search: state.search,
     loading: state.loading,
     error: state.error,
     loadCatalog,
     loadStickers,
-    setFilter,
+    setOwnershipFilter,
+    setScopeFilter,
     setSearch,
     updateStickerCount,
   };

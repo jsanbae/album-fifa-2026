@@ -20,6 +20,27 @@ describe('ListStickersUseCase', () => {
     expect(stickers).toHaveLength(3);
   });
 
+  it('filters by country id', async () => {
+    const stickers = await useCase.execute({ country: 'MEX' });
+
+    expect(stickers.map((s) => s.id)).toEqual(['MEX1', 'MEX2']);
+    expect(stickers.every((s) => s.countryId === 'MEX')).toBe(true);
+  });
+
+  it('excludes stickers without country when filtering by country', async () => {
+    const stickers = await useCase.execute({ country: 'MEX' });
+
+    expect(stickers.some((s) => s.countryId === null)).toBe(false);
+    expect(stickers.map((s) => s.id)).not.toContain('FWC1');
+    expect(stickers.map((s) => s.id)).not.toContain('CC1');
+  });
+
+  it('combines country filter with search', async () => {
+    const stickers = await useCase.execute({ country: 'MEX', search: 'MEX1' });
+
+    expect(stickers.map((s) => s.id)).toEqual(['MEX1']);
+  });
+
   it('searches by id prefix', async () => {
     const stickers = await useCase.execute({ search: 'MEX' });
     expect(stickers.map((s) => s.id)).toEqual(['MEX1', 'MEX2']);

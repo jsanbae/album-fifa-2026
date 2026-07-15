@@ -1,9 +1,9 @@
 import type { StickerDTO } from '../../adapters/CatalogApiAdapter.js';
-import type { CatalogFilter } from '../store/useCatalog.hook.js';
+import type { OwnershipFilter } from '../store/useCatalog.hook.js';
 
 export function filterStickersByOwnership(
   stickers: StickerDTO[],
-  filter: CatalogFilter,
+  filter: OwnershipFilter,
   getCount: (stickerId: string) => number,
 ): StickerDTO[] {
   if (filter === 'missing') {
