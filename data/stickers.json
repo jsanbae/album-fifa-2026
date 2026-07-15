@@ -841,126 +841,6 @@
             "group": "Grupo B"
         },
         {
-            "id": "SUI1",
-            "name": "Escudo de la SFV",
-            "countryId": "SUI",
-            "group": "Grupo B"
-        },
-        {
-            "id": "SUI2",
-            "name": "Gregor Kobel",
-            "countryId": "SUI",
-            "group": "Grupo B"
-        },
-        {
-            "id": "SUI3",
-            "name": "Yvon Mvogo",
-            "countryId": "SUI",
-            "group": "Grupo B"
-        },
-        {
-            "id": "SUI4",
-            "name": "Manuel Akanji",
-            "countryId": "SUI",
-            "group": "Grupo B"
-        },
-        {
-            "id": "SUI5",
-            "name": "Ricardo Rodriguez",
-            "countryId": "SUI",
-            "group": "Grupo B"
-        },
-        {
-            "id": "SUI6",
-            "name": "Nico Elvedi",
-            "countryId": "SUI",
-            "group": "Grupo B"
-        },
-        {
-            "id": "SUI7",
-            "name": "Aurèle Amenda",
-            "countryId": "SUI",
-            "group": "Grupo B"
-        },
-        {
-            "id": "SUI8",
-            "name": "Silvan Widmer",
-            "countryId": "SUI",
-            "group": "Grupo B"
-        },
-        {
-            "id": "SUI9",
-            "name": "Granit Xhaka",
-            "countryId": "SUI",
-            "group": "Grupo B"
-        },
-        {
-            "id": "SUI10",
-            "name": "Denis Zakaria",
-            "countryId": "SUI",
-            "group": "Grupo B"
-        },
-        {
-            "id": "SUI11",
-            "name": "Remo Freuler",
-            "countryId": "SUI",
-            "group": "Grupo B"
-        },
-        {
-            "id": "SUI12",
-            "name": "Fabian Rieder",
-            "countryId": "SUI",
-            "group": "Grupo B"
-        },
-        {
-            "id": "SUI13",
-            "name": "Fotografía de Equipo",
-            "countryId": "SUI",
-            "group": "Grupo B"
-        },
-        {
-            "id": "SUI14",
-            "name": "Ardon Jashari",
-            "countryId": "SUI",
-            "group": "Grupo B"
-        },
-        {
-            "id": "SUI15",
-            "name": "Johan Manzambi",
-            "countryId": "SUI",
-            "group": "Grupo B"
-        },
-        {
-            "id": "SUI16",
-            "name": "Michel Aebischer",
-            "countryId": "SUI",
-            "group": "Grupo B"
-        },
-        {
-            "id": "SUI17",
-            "name": "Breel Embolo",
-            "countryId": "SUI",
-            "group": "Grupo B"
-        },
-        {
-            "id": "SUI18",
-            "name": "Ruben Vargas",
-            "countryId": "SUI",
-            "group": "Grupo B"
-        },
-        {
-            "id": "SUI19",
-            "name": "Dan Ndoye",
-            "countryId": "SUI",
-            "group": "Grupo B"
-        },
-        {
-            "id": "SUI20",
-            "name": "Zeki Amdouni",
-            "countryId": "SUI",
-            "group": "Grupo B"
-        },
-        {
             "id": "QAT1",
             "name": "Escudo de la QFA",
             "countryId": "QAT",
@@ -1078,6 +958,126 @@
             "id": "QAT20",
             "name": "Almoez Ali",
             "countryId": "QAT",
+            "group": "Grupo B"
+        },
+        {
+            "id": "SUI1",
+            "name": "Escudo de la SFV",
+            "countryId": "SUI",
+            "group": "Grupo B"
+        },
+        {
+            "id": "SUI2",
+            "name": "Gregor Kobel",
+            "countryId": "SUI",
+            "group": "Grupo B"
+        },
+        {
+            "id": "SUI3",
+            "name": "Yvon Mvogo",
+            "countryId": "SUI",
+            "group": "Grupo B"
+        },
+        {
+            "id": "SUI4",
+            "name": "Manuel Akanji",
+            "countryId": "SUI",
+            "group": "Grupo B"
+        },
+        {
+            "id": "SUI5",
+            "name": "Ricardo Rodriguez",
+            "countryId": "SUI",
+            "group": "Grupo B"
+        },
+        {
+            "id": "SUI6",
+            "name": "Nico Elvedi",
+            "countryId": "SUI",
+            "group": "Grupo B"
+        },
+        {
+            "id": "SUI7",
+            "name": "Aurèle Amenda",
+            "countryId": "SUI",
+            "group": "Grupo B"
+        },
+        {
+            "id": "SUI8",
+            "name": "Silvan Widmer",
+            "countryId": "SUI",
+            "group": "Grupo B"
+        },
+        {
+            "id": "SUI9",
+            "name": "Granit Xhaka",
+            "countryId": "SUI",
+            "group": "Grupo B"
+        },
+        {
+            "id": "SUI10",
+            "name": "Denis Zakaria",
+            "countryId": "SUI",
+            "group": "Grupo B"
+        },
+        {
+            "id": "SUI11",
+            "name": "Remo Freuler",
+            "countryId": "SUI",
+            "group": "Grupo B"
+        },
+        {
+            "id": "SUI12",
+            "name": "Fabian Rieder",
+            "countryId": "SUI",
+            "group": "Grupo B"
+        },
+        {
+            "id": "SUI13",
+            "name": "Fotografía de Equipo",
+            "countryId": "SUI",
+            "group": "Grupo B"
+        },
+        {
+            "id": "SUI14",
+            "name": "Ardon Jashari",
+            "countryId": "SUI",
+            "group": "Grupo B"
+        },
+        {
+            "id": "SUI15",
+            "name": "Johan Manzambi",
+            "countryId": "SUI",
+            "group": "Grupo B"
+        },
+        {
+            "id": "SUI16",
+            "name": "Michel Aebischer",
+            "countryId": "SUI",
+            "group": "Grupo B"
+        },
+        {
+            "id": "SUI17",
+            "name": "Breel Embolo",
+            "countryId": "SUI",
+            "group": "Grupo B"
+        },
+        {
+            "id": "SUI18",
+            "name": "Ruben Vargas",
+            "countryId": "SUI",
+            "group": "Grupo B"
+        },
+        {
+            "id": "SUI19",
+            "name": "Dan Ndoye",
+            "countryId": "SUI",
+            "group": "Grupo B"
+        },
+        {
+            "id": "SUI20",
+            "name": "Zeki Amdouni",
+            "countryId": "SUI",
             "group": "Grupo B"
         },
         {
@@ -1321,126 +1321,6 @@
             "group": "Grupo C"
         },
         {
-            "id": "SCO1",
-            "name": "Escudo de la SFA",
-            "countryId": "SCO",
-            "group": "Grupo C"
-        },
-        {
-            "id": "SCO2",
-            "name": "Angus Gunn",
-            "countryId": "SCO",
-            "group": "Grupo C"
-        },
-        {
-            "id": "SCO3",
-            "name": "Jack Hendry",
-            "countryId": "SCO",
-            "group": "Grupo C"
-        },
-        {
-            "id": "SCO4",
-            "name": "Kieran Tierney",
-            "countryId": "SCO",
-            "group": "Grupo C"
-        },
-        {
-            "id": "SCO5",
-            "name": "Aaron Hickey",
-            "countryId": "SCO",
-            "group": "Grupo C"
-        },
-        {
-            "id": "SCO6",
-            "name": "Andrew Robertson",
-            "countryId": "SCO",
-            "group": "Grupo C"
-        },
-        {
-            "id": "SCO7",
-            "name": "Scott McKenna",
-            "countryId": "SCO",
-            "group": "Grupo C"
-        },
-        {
-            "id": "SCO8",
-            "name": "John Souttar",
-            "countryId": "SCO",
-            "group": "Grupo C"
-        },
-        {
-            "id": "SCO9",
-            "name": "Anthony Ralston",
-            "countryId": "SCO",
-            "group": "Grupo C"
-        },
-        {
-            "id": "SCO10",
-            "name": "Grant Hanley",
-            "countryId": "SCO",
-            "group": "Grupo C"
-        },
-        {
-            "id": "SCO11",
-            "name": "Scott McTominay",
-            "countryId": "SCO",
-            "group": "Grupo C"
-        },
-        {
-            "id": "SCO12",
-            "name": "Billy Gilmour",
-            "countryId": "SCO",
-            "group": "Grupo C"
-        },
-        {
-            "id": "SCO13",
-            "name": "Fotografía de Equipo",
-            "countryId": "SCO",
-            "group": "Grupo C"
-        },
-        {
-            "id": "SCO14",
-            "name": "Lewis Ferguson",
-            "countryId": "SCO",
-            "group": "Grupo C"
-        },
-        {
-            "id": "SCO15",
-            "name": "Ryan Christie",
-            "countryId": "SCO",
-            "group": "Grupo C"
-        },
-        {
-            "id": "SCO16",
-            "name": "Kenny McLean",
-            "countryId": "SCO",
-            "group": "Grupo C"
-        },
-        {
-            "id": "SCO17",
-            "name": "John McGinn",
-            "countryId": "SCO",
-            "group": "Grupo C"
-        },
-        {
-            "id": "SCO18",
-            "name": "Lyndon Dykes",
-            "countryId": "SCO",
-            "group": "Grupo C"
-        },
-        {
-            "id": "SCO19",
-            "name": "Che Adams",
-            "countryId": "SCO",
-            "group": "Grupo C"
-        },
-        {
-            "id": "SCO20",
-            "name": "Ben Gannon-Doak",
-            "countryId": "SCO",
-            "group": "Grupo C"
-        },
-        {
             "id": "HAI1",
             "name": "Escudo de la FHF",
             "countryId": "HAI",
@@ -1558,6 +1438,126 @@
             "id": "HAI20",
             "name": "Frantzdy Pierrot",
             "countryId": "HAI",
+            "group": "Grupo C"
+        },
+        {
+            "id": "SCO1",
+            "name": "Escudo de la SFA",
+            "countryId": "SCO",
+            "group": "Grupo C"
+        },
+        {
+            "id": "SCO2",
+            "name": "Angus Gunn",
+            "countryId": "SCO",
+            "group": "Grupo C"
+        },
+        {
+            "id": "SCO3",
+            "name": "Jack Hendry",
+            "countryId": "SCO",
+            "group": "Grupo C"
+        },
+        {
+            "id": "SCO4",
+            "name": "Kieran Tierney",
+            "countryId": "SCO",
+            "group": "Grupo C"
+        },
+        {
+            "id": "SCO5",
+            "name": "Aaron Hickey",
+            "countryId": "SCO",
+            "group": "Grupo C"
+        },
+        {
+            "id": "SCO6",
+            "name": "Andrew Robertson",
+            "countryId": "SCO",
+            "group": "Grupo C"
+        },
+        {
+            "id": "SCO7",
+            "name": "Scott McKenna",
+            "countryId": "SCO",
+            "group": "Grupo C"
+        },
+        {
+            "id": "SCO8",
+            "name": "John Souttar",
+            "countryId": "SCO",
+            "group": "Grupo C"
+        },
+        {
+            "id": "SCO9",
+            "name": "Anthony Ralston",
+            "countryId": "SCO",
+            "group": "Grupo C"
+        },
+        {
+            "id": "SCO10",
+            "name": "Grant Hanley",
+            "countryId": "SCO",
+            "group": "Grupo C"
+        },
+        {
+            "id": "SCO11",
+            "name": "Scott McTominay",
+            "countryId": "SCO",
+            "group": "Grupo C"
+        },
+        {
+            "id": "SCO12",
+            "name": "Billy Gilmour",
+            "countryId": "SCO",
+            "group": "Grupo C"
+        },
+        {
+            "id": "SCO13",
+            "name": "Fotografía de Equipo",
+            "countryId": "SCO",
+            "group": "Grupo C"
+        },
+        {
+            "id": "SCO14",
+            "name": "Lewis Ferguson",
+            "countryId": "SCO",
+            "group": "Grupo C"
+        },
+        {
+            "id": "SCO15",
+            "name": "Ryan Christie",
+            "countryId": "SCO",
+            "group": "Grupo C"
+        },
+        {
+            "id": "SCO16",
+            "name": "Kenny McLean",
+            "countryId": "SCO",
+            "group": "Grupo C"
+        },
+        {
+            "id": "SCO17",
+            "name": "John McGinn",
+            "countryId": "SCO",
+            "group": "Grupo C"
+        },
+        {
+            "id": "SCO18",
+            "name": "Lyndon Dykes",
+            "countryId": "SCO",
+            "group": "Grupo C"
+        },
+        {
+            "id": "SCO19",
+            "name": "Che Adams",
+            "countryId": "SCO",
+            "group": "Grupo C"
+        },
+        {
+            "id": "SCO20",
+            "name": "Ben Gannon-Doak",
+            "countryId": "SCO",
             "group": "Grupo C"
         },
         {
@@ -2161,123 +2161,123 @@
             "group": "Grupo E"
         },
         {
-            "id": "ECU1",
-            "name": "Escudo de la FEF",
-            "countryId": "ECU",
+            "id": "CUW1",
+            "name": "Escudo de la FFK",
+            "countryId": "CUW",
             "group": "Grupo E"
         },
         {
-            "id": "ECU2",
-            "name": "Hernán Galíndez",
-            "countryId": "ECU",
+            "id": "CUW2",
+            "name": "Eloy Room",
+            "countryId": "CUW",
             "group": "Grupo E"
         },
         {
-            "id": "ECU3",
-            "name": "Gonzalo Valle",
-            "countryId": "ECU",
+            "id": "CUW3",
+            "name": "Armando Obispo",
+            "countryId": "CUW",
             "group": "Grupo E"
         },
         {
-            "id": "ECU4",
-            "name": "Piero Hincapié",
-            "countryId": "ECU",
+            "id": "CUW4",
+            "name": "Sherel Floranus",
+            "countryId": "CUW",
             "group": "Grupo E"
         },
         {
-            "id": "ECU5",
-            "name": "Pervis Estupiñán",
-            "countryId": "ECU",
+            "id": "CUW5",
+            "name": "Jurien Gaari",
+            "countryId": "CUW",
             "group": "Grupo E"
         },
         {
-            "id": "ECU6",
-            "name": "Willian Pacho",
-            "countryId": "ECU",
+            "id": "CUW6",
+            "name": "Joshua Brenet",
+            "countryId": "CUW",
             "group": "Grupo E"
         },
         {
-            "id": "ECU7",
-            "name": "Ángelo Preciado",
-            "countryId": "ECU",
+            "id": "CUW7",
+            "name": "Roshon Van Eijma",
+            "countryId": "CUW",
             "group": "Grupo E"
         },
         {
-            "id": "ECU8",
-            "name": "Joel Ordóñez",
-            "countryId": "ECU",
+            "id": "CUW8",
+            "name": "Shurandy Sambo",
+            "countryId": "CUW",
             "group": "Grupo E"
         },
         {
-            "id": "ECU9",
-            "name": "Moises Caicedo",
-            "countryId": "ECU",
+            "id": "CUW9",
+            "name": "Livano Comenencia",
+            "countryId": "CUW",
             "group": "Grupo E"
         },
         {
-            "id": "ECU10",
-            "name": "Alan Franco",
-            "countryId": "ECU",
+            "id": "CUW10",
+            "name": "Godfried Roemeratoe",
+            "countryId": "CUW",
             "group": "Grupo E"
         },
         {
-            "id": "ECU11",
-            "name": "Kendry Paez",
-            "countryId": "ECU",
+            "id": "CUW11",
+            "name": "Juninho Bacuna",
+            "countryId": "CUW",
             "group": "Grupo E"
         },
         {
-            "id": "ECU12",
-            "name": "Pedro Vite",
-            "countryId": "ECU",
+            "id": "CUW12",
+            "name": "Leandro Bacuna",
+            "countryId": "CUW",
             "group": "Grupo E"
         },
         {
-            "id": "ECU13",
+            "id": "CUW13",
             "name": "Fotografía de Equipo",
-            "countryId": "ECU",
+            "countryId": "CUW",
             "group": "Grupo E"
         },
         {
-            "id": "ECU14",
-            "name": "John Veboah",
-            "countryId": "ECU",
+            "id": "CUW14",
+            "name": "Tahith Chong",
+            "countryId": "CUW",
             "group": "Grupo E"
         },
         {
-            "id": "ECU15",
-            "name": "Leonardo Campana",
-            "countryId": "ECU",
+            "id": "CUW15",
+            "name": "Kenji Gorre",
+            "countryId": "CUW",
             "group": "Grupo E"
         },
         {
-            "id": "ECU16",
-            "name": "Gonzalo Plata",
-            "countryId": "ECU",
+            "id": "CUW16",
+            "name": "Jearl Margaritha",
+            "countryId": "CUW",
             "group": "Grupo E"
         },
         {
-            "id": "ECU17",
-            "name": "Nilson Angulo",
-            "countryId": "ECU",
+            "id": "CUW17",
+            "name": "Jurgen Locadia",
+            "countryId": "CUW",
             "group": "Grupo E"
         },
         {
-            "id": "ECU18",
-            "name": "Alan Minda",
-            "countryId": "ECU",
+            "id": "CUW18",
+            "name": "Jeremy Antonisse",
+            "countryId": "CUW",
             "group": "Grupo E"
         },
         {
-            "id": "ECU19",
-            "name": "Kevin Rodriguez",
-            "countryId": "ECU",
+            "id": "CUW19",
+            "name": "Gervane Kastaneer",
+            "countryId": "CUW",
             "group": "Grupo E"
         },
         {
-            "id": "ECU20",
-            "name": "Enner Valencia",
-            "countryId": "ECU",
+            "id": "CUW20",
+            "name": "Sontje Hansen",
+            "countryId": "CUW",
             "group": "Grupo E"
         },
         {
@@ -2401,123 +2401,123 @@
             "group": "Grupo E"
         },
         {
-            "id": "CUW1",
-            "name": "Escudo de la FFK",
-            "countryId": "CUW",
+            "id": "ECU1",
+            "name": "Escudo de la FEF",
+            "countryId": "ECU",
             "group": "Grupo E"
         },
         {
-            "id": "CUW2",
-            "name": "Eloy Room",
-            "countryId": "CUW",
+            "id": "ECU2",
+            "name": "Hernán Galíndez",
+            "countryId": "ECU",
             "group": "Grupo E"
         },
         {
-            "id": "CUW3",
-            "name": "Armando Obispo",
-            "countryId": "CUW",
+            "id": "ECU3",
+            "name": "Gonzalo Valle",
+            "countryId": "ECU",
             "group": "Grupo E"
         },
         {
-            "id": "CUW4",
-            "name": "Sherel Floranus",
-            "countryId": "CUW",
+            "id": "ECU4",
+            "name": "Piero Hincapié",
+            "countryId": "ECU",
             "group": "Grupo E"
         },
         {
-            "id": "CUW5",
-            "name": "Jurien Gaari",
-            "countryId": "CUW",
+            "id": "ECU5",
+            "name": "Pervis Estupiñán",
+            "countryId": "ECU",
             "group": "Grupo E"
         },
         {
-            "id": "CUW6",
-            "name": "Joshua Brenet",
-            "countryId": "CUW",
+            "id": "ECU6",
+            "name": "Willian Pacho",
+            "countryId": "ECU",
             "group": "Grupo E"
         },
         {
-            "id": "CUW7",
-            "name": "Roshon Van Eijma",
-            "countryId": "CUW",
+            "id": "ECU7",
+            "name": "Ángelo Preciado",
+            "countryId": "ECU",
             "group": "Grupo E"
         },
         {
-            "id": "CUW8",
-            "name": "Shurandy Sambo",
-            "countryId": "CUW",
+            "id": "ECU8",
+            "name": "Joel Ordóñez",
+            "countryId": "ECU",
             "group": "Grupo E"
         },
         {
-            "id": "CUW9",
-            "name": "Livano Comenencia",
-            "countryId": "CUW",
+            "id": "ECU9",
+            "name": "Moises Caicedo",
+            "countryId": "ECU",
             "group": "Grupo E"
         },
         {
-            "id": "CUW10",
-            "name": "Godfried Roemeratoe",
-            "countryId": "CUW",
+            "id": "ECU10",
+            "name": "Alan Franco",
+            "countryId": "ECU",
             "group": "Grupo E"
         },
         {
-            "id": "CUW11",
-            "name": "Juninho Bacuna",
-            "countryId": "CUW",
+            "id": "ECU11",
+            "name": "Kendry Paez",
+            "countryId": "ECU",
             "group": "Grupo E"
         },
         {
-            "id": "CUW12",
-            "name": "Leandro Bacuna",
-            "countryId": "CUW",
+            "id": "ECU12",
+            "name": "Pedro Vite",
+            "countryId": "ECU",
             "group": "Grupo E"
         },
         {
-            "id": "CUW13",
+            "id": "ECU13",
             "name": "Fotografía de Equipo",
-            "countryId": "CUW",
+            "countryId": "ECU",
             "group": "Grupo E"
         },
         {
-            "id": "CUW14",
-            "name": "Tahith Chong",
-            "countryId": "CUW",
+            "id": "ECU14",
+            "name": "John Veboah",
+            "countryId": "ECU",
             "group": "Grupo E"
         },
         {
-            "id": "CUW15",
-            "name": "Kenji Gorre",
-            "countryId": "CUW",
+            "id": "ECU15",
+            "name": "Leonardo Campana",
+            "countryId": "ECU",
             "group": "Grupo E"
         },
         {
-            "id": "CUW16",
-            "name": "Jearl Margaritha",
-            "countryId": "CUW",
+            "id": "ECU16",
+            "name": "Gonzalo Plata",
+            "countryId": "ECU",
             "group": "Grupo E"
         },
         {
-            "id": "CUW17",
-            "name": "Jurgen Locadia",
-            "countryId": "CUW",
+            "id": "ECU17",
+            "name": "Nilson Angulo",
+            "countryId": "ECU",
             "group": "Grupo E"
         },
         {
-            "id": "CUW18",
-            "name": "Jeremy Antonisse",
-            "countryId": "CUW",
+            "id": "ECU18",
+            "name": "Alan Minda",
+            "countryId": "ECU",
             "group": "Grupo E"
         },
         {
-            "id": "CUW19",
-            "name": "Gervane Kastaneer",
-            "countryId": "CUW",
+            "id": "ECU19",
+            "name": "Kevin Rodriguez",
+            "countryId": "ECU",
             "group": "Grupo E"
         },
         {
-            "id": "CUW20",
-            "name": "Sontje Hansen",
-            "countryId": "CUW",
+            "id": "ECU20",
+            "name": "Enner Valencia",
+            "countryId": "ECU",
             "group": "Grupo E"
         },
         {
@@ -3601,123 +3601,123 @@
             "group": "Grupo H"
         },
         {
-            "id": "URU1",
-            "name": "Escudo de la AUF",
-            "countryId": "URU",
+            "id": "CPV1",
+            "name": "Escudo de la FCF",
+            "countryId": "CPV",
             "group": "Grupo H"
         },
         {
-            "id": "URU2",
-            "name": "Sergio Rochet",
-            "countryId": "URU",
+            "id": "CPV2",
+            "name": "Vozinha",
+            "countryId": "CPV",
             "group": "Grupo H"
         },
         {
-            "id": "URU3",
-            "name": "Santiago Mele",
-            "countryId": "URU",
+            "id": "CPV3",
+            "name": "Logan Costa",
+            "countryId": "CPV",
             "group": "Grupo H"
         },
         {
-            "id": "URU4",
-            "name": "Ronald Araujo",
-            "countryId": "URU",
+            "id": "CPV4",
+            "name": "Pico",
+            "countryId": "CPV",
             "group": "Grupo H"
         },
         {
-            "id": "URU5",
-            "name": "José María Giménez",
-            "countryId": "URU",
+            "id": "CPV5",
+            "name": "Diney",
+            "countryId": "CPV",
             "group": "Grupo H"
         },
         {
-            "id": "URU6",
-            "name": "Sebastian Caceres",
-            "countryId": "URU",
+            "id": "CPV6",
+            "name": "Steven Moreira",
+            "countryId": "CPV",
             "group": "Grupo H"
         },
         {
-            "id": "URU7",
-            "name": "Mathias Olivera",
-            "countryId": "URU",
+            "id": "CPV7",
+            "name": "Wagner Pina",
+            "countryId": "CPV",
             "group": "Grupo H"
         },
         {
-            "id": "URU8",
-            "name": "Guillermo Varela",
-            "countryId": "URU",
+            "id": "CPV8",
+            "name": "Joao Paulo",
+            "countryId": "CPV",
             "group": "Grupo H"
         },
         {
-            "id": "URU9",
-            "name": "Nahitan Nandez",
-            "countryId": "URU",
+            "id": "CPV9",
+            "name": "Yannick Semedo",
+            "countryId": "CPV",
             "group": "Grupo H"
         },
         {
-            "id": "URU10",
-            "name": "Federico Valverde",
-            "countryId": "URU",
+            "id": "CPV10",
+            "name": "Kevin Pina",
+            "countryId": "CPV",
             "group": "Grupo H"
         },
         {
-            "id": "URU11",
-            "name": "Giorgian De Arrascaeta",
-            "countryId": "URU",
+            "id": "CPV11",
+            "name": "Patrick Andrade",
+            "countryId": "CPV",
             "group": "Grupo H"
         },
         {
-            "id": "URU12",
-            "name": "Rodrigo Bentancur",
-            "countryId": "URU",
+            "id": "CPV12",
+            "name": "Jamiro Monteiro",
+            "countryId": "CPV",
             "group": "Grupo H"
         },
         {
-            "id": "URU13",
+            "id": "CPV13",
             "name": "Fotografía de Equipo",
-            "countryId": "URU",
+            "countryId": "CPV",
             "group": "Grupo H"
         },
         {
-            "id": "URU14",
-            "name": "Manuel Ugarte",
-            "countryId": "URU",
+            "id": "CPV14",
+            "name": "Deroy Duarte",
+            "countryId": "CPV",
             "group": "Grupo H"
         },
         {
-            "id": "URU15",
-            "name": "Nicolás de la Cruz",
-            "countryId": "URU",
+            "id": "CPV15",
+            "name": "Garry Rodrigues",
+            "countryId": "CPV",
             "group": "Grupo H"
         },
         {
-            "id": "URU16",
-            "name": "Maxi Araujo",
-            "countryId": "URU",
+            "id": "CPV16",
+            "name": "Jovane Cabral",
+            "countryId": "CPV",
             "group": "Grupo H"
         },
         {
-            "id": "URU17",
-            "name": "Darwin Núñez",
-            "countryId": "URU",
+            "id": "CPV17",
+            "name": "Ryan Mendes",
+            "countryId": "CPV",
             "group": "Grupo H"
         },
         {
-            "id": "URU18",
-            "name": "Federico Viñas",
-            "countryId": "URU",
+            "id": "CPV18",
+            "name": "Dailon Livramento",
+            "countryId": "CPV",
             "group": "Grupo H"
         },
         {
-            "id": "URU19",
-            "name": "Rodrigo Aguirre",
-            "countryId": "URU",
+            "id": "CPV19",
+            "name": "Willy Semedo",
+            "countryId": "CPV",
             "group": "Grupo H"
         },
         {
-            "id": "URU20",
-            "name": "Facundo Pellistri",
-            "countryId": "URU",
+            "id": "CPV20",
+            "name": "Bebe",
+            "countryId": "CPV",
             "group": "Grupo H"
         },
         {
@@ -3841,123 +3841,123 @@
             "group": "Grupo H"
         },
         {
-            "id": "CPV1",
-            "name": "Escudo de la FCF",
-            "countryId": "CPV",
+            "id": "URU1",
+            "name": "Escudo de la AUF",
+            "countryId": "URU",
             "group": "Grupo H"
         },
         {
-            "id": "CPV2",
-            "name": "Vozinha",
-            "countryId": "CPV",
+            "id": "URU2",
+            "name": "Sergio Rochet",
+            "countryId": "URU",
             "group": "Grupo H"
         },
         {
-            "id": "CPV3",
-            "name": "Logan Costa",
-            "countryId": "CPV",
+            "id": "URU3",
+            "name": "Santiago Mele",
+            "countryId": "URU",
             "group": "Grupo H"
         },
         {
-            "id": "CPV4",
-            "name": "Pico",
-            "countryId": "CPV",
+            "id": "URU4",
+            "name": "Ronald Araujo",
+            "countryId": "URU",
             "group": "Grupo H"
         },
         {
-            "id": "CPV5",
-            "name": "Diney",
-            "countryId": "CPV",
+            "id": "URU5",
+            "name": "José María Giménez",
+            "countryId": "URU",
             "group": "Grupo H"
         },
         {
-            "id": "CPV6",
-            "name": "Steven Moreira",
-            "countryId": "CPV",
+            "id": "URU6",
+            "name": "Sebastian Caceres",
+            "countryId": "URU",
             "group": "Grupo H"
         },
         {
-            "id": "CPV7",
-            "name": "Wagner Pina",
-            "countryId": "CPV",
+            "id": "URU7",
+            "name": "Mathias Olivera",
+            "countryId": "URU",
             "group": "Grupo H"
         },
         {
-            "id": "CPV8",
-            "name": "Joao Paulo",
-            "countryId": "CPV",
+            "id": "URU8",
+            "name": "Guillermo Varela",
+            "countryId": "URU",
             "group": "Grupo H"
         },
         {
-            "id": "CPV9",
-            "name": "Yannick Semedo",
-            "countryId": "CPV",
+            "id": "URU9",
+            "name": "Nahitan Nandez",
+            "countryId": "URU",
             "group": "Grupo H"
         },
         {
-            "id": "CPV10",
-            "name": "Kevin Pina",
-            "countryId": "CPV",
+            "id": "URU10",
+            "name": "Federico Valverde",
+            "countryId": "URU",
             "group": "Grupo H"
         },
         {
-            "id": "CPV11",
-            "name": "Patrick Andrade",
-            "countryId": "CPV",
+            "id": "URU11",
+            "name": "Giorgian De Arrascaeta",
+            "countryId": "URU",
             "group": "Grupo H"
         },
         {
-            "id": "CPV12",
-            "name": "Jamiro Monteiro",
-            "countryId": "CPV",
+            "id": "URU12",
+            "name": "Rodrigo Bentancur",
+            "countryId": "URU",
             "group": "Grupo H"
         },
         {
-            "id": "CPV13",
+            "id": "URU13",
             "name": "Fotografía de Equipo",
-            "countryId": "CPV",
+            "countryId": "URU",
             "group": "Grupo H"
         },
         {
-            "id": "CPV14",
-            "name": "Deroy Duarte",
-            "countryId": "CPV",
+            "id": "URU14",
+            "name": "Manuel Ugarte",
+            "countryId": "URU",
             "group": "Grupo H"
         },
         {
-            "id": "CPV15",
-            "name": "Garry Rodrigues",
-            "countryId": "CPV",
+            "id": "URU15",
+            "name": "Nicolás de la Cruz",
+            "countryId": "URU",
             "group": "Grupo H"
         },
         {
-            "id": "CPV16",
-            "name": "Jovane Cabral",
-            "countryId": "CPV",
+            "id": "URU16",
+            "name": "Maxi Araujo",
+            "countryId": "URU",
             "group": "Grupo H"
         },
         {
-            "id": "CPV17",
-            "name": "Ryan Mendes",
-            "countryId": "CPV",
+            "id": "URU17",
+            "name": "Darwin Núñez",
+            "countryId": "URU",
             "group": "Grupo H"
         },
         {
-            "id": "CPV18",
-            "name": "Dailon Livramento",
-            "countryId": "CPV",
+            "id": "URU18",
+            "name": "Federico Viñas",
+            "countryId": "URU",
             "group": "Grupo H"
         },
         {
-            "id": "CPV19",
-            "name": "Willy Semedo",
-            "countryId": "CPV",
+            "id": "URU19",
+            "name": "Rodrigo Aguirre",
+            "countryId": "URU",
             "group": "Grupo H"
         },
         {
-            "id": "CPV20",
-            "name": "Bebe",
-            "countryId": "CPV",
+            "id": "URU20",
+            "name": "Facundo Pellistri",
+            "countryId": "URU",
             "group": "Grupo H"
         },
         {
@@ -4201,126 +4201,6 @@
             "group": "Grupo I"
         },
         {
-            "id": "NOR1",
-            "name": "Escudo de la NFF",
-            "countryId": "NOR",
-            "group": "Grupo I"
-        },
-        {
-            "id": "NOR2",
-            "name": "Orjan Nyland",
-            "countryId": "NOR",
-            "group": "Grupo I"
-        },
-        {
-            "id": "NOR3",
-            "name": "Julian Ryerson",
-            "countryId": "NOR",
-            "group": "Grupo I"
-        },
-        {
-            "id": "NOR4",
-            "name": "Leo Ostigård",
-            "countryId": "NOR",
-            "group": "Grupo I"
-        },
-        {
-            "id": "NOR5",
-            "name": "Kristoffer Vassbakk Ajer",
-            "countryId": "NOR",
-            "group": "Grupo I"
-        },
-        {
-            "id": "NOR6",
-            "name": "Marcus Holmgren Pedersen",
-            "countryId": "NOR",
-            "group": "Grupo I"
-        },
-        {
-            "id": "NOR7",
-            "name": "David Møller Wolfe",
-            "countryId": "NOR",
-            "group": "Grupo I"
-        },
-        {
-            "id": "NOR8",
-            "name": "Torbjørn Heggem",
-            "countryId": "NOR",
-            "group": "Grupo I"
-        },
-        {
-            "id": "NOR9",
-            "name": "Morten Thorsby",
-            "countryId": "NOR",
-            "group": "Grupo I"
-        },
-        {
-            "id": "NOR10",
-            "name": "Martin Ødegaard",
-            "countryId": "NOR",
-            "group": "Grupo I"
-        },
-        {
-            "id": "NOR11",
-            "name": "Sander Berge",
-            "countryId": "NOR",
-            "group": "Grupo I"
-        },
-        {
-            "id": "NOR12",
-            "name": "Andreas Schjelderup",
-            "countryId": "NOR",
-            "group": "Grupo I"
-        },
-        {
-            "id": "NOR13",
-            "name": "Fotografía de Equipo",
-            "countryId": "NOR",
-            "group": "Grupo I"
-        },
-        {
-            "id": "NOR14",
-            "name": "Patrick Berg",
-            "countryId": "NOR",
-            "group": "Grupo I"
-        },
-        {
-            "id": "NOR15",
-            "name": "Erling Haaland",
-            "countryId": "NOR",
-            "group": "Grupo I"
-        },
-        {
-            "id": "NOR16",
-            "name": "Alexander Sørloth",
-            "countryId": "NOR",
-            "group": "Grupo I"
-        },
-        {
-            "id": "NOR17",
-            "name": "Aron Dønnum",
-            "countryId": "NOR",
-            "group": "Grupo I"
-        },
-        {
-            "id": "NOR18",
-            "name": "Jorgen Strand Larsen",
-            "countryId": "NOR",
-            "group": "Grupo I"
-        },
-        {
-            "id": "NOR19",
-            "name": "Antonio Nusa",
-            "countryId": "NOR",
-            "group": "Grupo I"
-        },
-        {
-            "id": "NOR20",
-            "name": "Oscar Bobb",
-            "countryId": "NOR",
-            "group": "Grupo I"
-        },
-        {
             "id": "IRQ1",
             "name": "Escudo de la IFA",
             "countryId": "IRQ",
@@ -4441,6 +4321,126 @@
             "group": "Grupo I"
         },
         {
+            "id": "NOR1",
+            "name": "Escudo de la NFF",
+            "countryId": "NOR",
+            "group": "Grupo I"
+        },
+        {
+            "id": "NOR2",
+            "name": "Orjan Nyland",
+            "countryId": "NOR",
+            "group": "Grupo I"
+        },
+        {
+            "id": "NOR3",
+            "name": "Julian Ryerson",
+            "countryId": "NOR",
+            "group": "Grupo I"
+        },
+        {
+            "id": "NOR4",
+            "name": "Leo Ostigård",
+            "countryId": "NOR",
+            "group": "Grupo I"
+        },
+        {
+            "id": "NOR5",
+            "name": "Kristoffer Vassbakk Ajer",
+            "countryId": "NOR",
+            "group": "Grupo I"
+        },
+        {
+            "id": "NOR6",
+            "name": "Marcus Holmgren Pedersen",
+            "countryId": "NOR",
+            "group": "Grupo I"
+        },
+        {
+            "id": "NOR7",
+            "name": "David Møller Wolfe",
+            "countryId": "NOR",
+            "group": "Grupo I"
+        },
+        {
+            "id": "NOR8",
+            "name": "Torbjørn Heggem",
+            "countryId": "NOR",
+            "group": "Grupo I"
+        },
+        {
+            "id": "NOR9",
+            "name": "Morten Thorsby",
+            "countryId": "NOR",
+            "group": "Grupo I"
+        },
+        {
+            "id": "NOR10",
+            "name": "Martin Ødegaard",
+            "countryId": "NOR",
+            "group": "Grupo I"
+        },
+        {
+            "id": "NOR11",
+            "name": "Sander Berge",
+            "countryId": "NOR",
+            "group": "Grupo I"
+        },
+        {
+            "id": "NOR12",
+            "name": "Andreas Schjelderup",
+            "countryId": "NOR",
+            "group": "Grupo I"
+        },
+        {
+            "id": "NOR13",
+            "name": "Fotografía de Equipo",
+            "countryId": "NOR",
+            "group": "Grupo I"
+        },
+        {
+            "id": "NOR14",
+            "name": "Patrick Berg",
+            "countryId": "NOR",
+            "group": "Grupo I"
+        },
+        {
+            "id": "NOR15",
+            "name": "Erling Haaland",
+            "countryId": "NOR",
+            "group": "Grupo I"
+        },
+        {
+            "id": "NOR16",
+            "name": "Alexander Sørloth",
+            "countryId": "NOR",
+            "group": "Grupo I"
+        },
+        {
+            "id": "NOR17",
+            "name": "Aron Dønnum",
+            "countryId": "NOR",
+            "group": "Grupo I"
+        },
+        {
+            "id": "NOR18",
+            "name": "Jorgen Strand Larsen",
+            "countryId": "NOR",
+            "group": "Grupo I"
+        },
+        {
+            "id": "NOR19",
+            "name": "Antonio Nusa",
+            "countryId": "NOR",
+            "group": "Grupo I"
+        },
+        {
+            "id": "NOR20",
+            "name": "Oscar Bobb",
+            "countryId": "NOR",
+            "group": "Grupo I"
+        },
+        {
             "id": "ARG1",
             "name": "Escudo de la AFA",
             "countryId": "ARG",
@@ -4558,6 +4558,126 @@
             "id": "ARG20",
             "name": "Giuliano Simeone",
             "countryId": "ARG",
+            "group": "Grupo J"
+        },
+        {
+            "id": "ALG1",
+            "name": "Escudo de la FAF",
+            "countryId": "ALG",
+            "group": "Grupo J"
+        },
+        {
+            "id": "ALG2",
+            "name": "Alexis Guendouz",
+            "countryId": "ALG",
+            "group": "Grupo J"
+        },
+        {
+            "id": "ALG3",
+            "name": "Ramy Bensebaini",
+            "countryId": "ALG",
+            "group": "Grupo J"
+        },
+        {
+            "id": "ALG4",
+            "name": "Youcef Atal",
+            "countryId": "ALG",
+            "group": "Grupo J"
+        },
+        {
+            "id": "ALG5",
+            "name": "Rayan Aït-Nouri",
+            "countryId": "ALG",
+            "group": "Grupo J"
+        },
+        {
+            "id": "ALG6",
+            "name": "Mohamed Amine Tougai",
+            "countryId": "ALG",
+            "group": "Grupo J"
+        },
+        {
+            "id": "ALG7",
+            "name": "Aïssa Mandi",
+            "countryId": "ALG",
+            "group": "Grupo J"
+        },
+        {
+            "id": "ALG8",
+            "name": "Ismael Bennacer",
+            "countryId": "ALG",
+            "group": "Grupo J"
+        },
+        {
+            "id": "ALG9",
+            "name": "Houssem Aquar",
+            "countryId": "ALG",
+            "group": "Grupo J"
+        },
+        {
+            "id": "ALG10",
+            "name": "Hicham Boudaoui",
+            "countryId": "ALG",
+            "group": "Grupo J"
+        },
+        {
+            "id": "ALG11",
+            "name": "Ramiz Zerrouki",
+            "countryId": "ALG",
+            "group": "Grupo J"
+        },
+        {
+            "id": "ALG12",
+            "name": "Nabil Bentalab",
+            "countryId": "ALG",
+            "group": "Grupo J"
+        },
+        {
+            "id": "ALG13",
+            "name": "Fotografía de Equipo",
+            "countryId": "ALG",
+            "group": "Grupo J"
+        },
+        {
+            "id": "ALG14",
+            "name": "Farés Chaibi",
+            "countryId": "ALG",
+            "group": "Grupo J"
+        },
+        {
+            "id": "ALG15",
+            "name": "Riyad Mahrez",
+            "countryId": "ALG",
+            "group": "Grupo J"
+        },
+        {
+            "id": "ALG16",
+            "name": "Said Benrhama",
+            "countryId": "ALG",
+            "group": "Grupo J"
+        },
+        {
+            "id": "ALG17",
+            "name": "Anis Hadj Moussa",
+            "countryId": "ALG",
+            "group": "Grupo J"
+        },
+        {
+            "id": "ALG18",
+            "name": "Amine Gouiri",
+            "countryId": "ALG",
+            "group": "Grupo J"
+        },
+        {
+            "id": "ALG19",
+            "name": "Baghdad Bounedjah",
+            "countryId": "ALG",
+            "group": "Grupo J"
+        },
+        {
+            "id": "ALG20",
+            "name": "Mohammed Amoura",
+            "countryId": "ALG",
             "group": "Grupo J"
         },
         {
@@ -4801,126 +4921,6 @@
             "group": "Grupo J"
         },
         {
-            "id": "ALG1",
-            "name": "Escudo de la FAF",
-            "countryId": "ALG",
-            "group": "Grupo J"
-        },
-        {
-            "id": "ALG2",
-            "name": "Alexis Guendouz",
-            "countryId": "ALG",
-            "group": "Grupo J"
-        },
-        {
-            "id": "ALG3",
-            "name": "Ramy Bensebaini",
-            "countryId": "ALG",
-            "group": "Grupo J"
-        },
-        {
-            "id": "ALG4",
-            "name": "Youcef Atal",
-            "countryId": "ALG",
-            "group": "Grupo J"
-        },
-        {
-            "id": "ALG5",
-            "name": "Rayan Aït-Nouri",
-            "countryId": "ALG",
-            "group": "Grupo J"
-        },
-        {
-            "id": "ALG6",
-            "name": "Mohamed Amine Tougai",
-            "countryId": "ALG",
-            "group": "Grupo J"
-        },
-        {
-            "id": "ALG7",
-            "name": "Aïssa Mandi",
-            "countryId": "ALG",
-            "group": "Grupo J"
-        },
-        {
-            "id": "ALG8",
-            "name": "Ismael Bennacer",
-            "countryId": "ALG",
-            "group": "Grupo J"
-        },
-        {
-            "id": "ALG9",
-            "name": "Houssem Aquar",
-            "countryId": "ALG",
-            "group": "Grupo J"
-        },
-        {
-            "id": "ALG10",
-            "name": "Hicham Boudaoui",
-            "countryId": "ALG",
-            "group": "Grupo J"
-        },
-        {
-            "id": "ALG11",
-            "name": "Ramiz Zerrouki",
-            "countryId": "ALG",
-            "group": "Grupo J"
-        },
-        {
-            "id": "ALG12",
-            "name": "Nabil Bentalab",
-            "countryId": "ALG",
-            "group": "Grupo J"
-        },
-        {
-            "id": "ALG13",
-            "name": "Fotografía de Equipo",
-            "countryId": "ALG",
-            "group": "Grupo J"
-        },
-        {
-            "id": "ALG14",
-            "name": "Farés Chaibi",
-            "countryId": "ALG",
-            "group": "Grupo J"
-        },
-        {
-            "id": "ALG15",
-            "name": "Riyad Mahrez",
-            "countryId": "ALG",
-            "group": "Grupo J"
-        },
-        {
-            "id": "ALG16",
-            "name": "Said Benrhama",
-            "countryId": "ALG",
-            "group": "Grupo J"
-        },
-        {
-            "id": "ALG17",
-            "name": "Anis Hadj Moussa",
-            "countryId": "ALG",
-            "group": "Grupo J"
-        },
-        {
-            "id": "ALG18",
-            "name": "Amine Gouiri",
-            "countryId": "ALG",
-            "group": "Grupo J"
-        },
-        {
-            "id": "ALG19",
-            "name": "Baghdad Bounedjah",
-            "countryId": "ALG",
-            "group": "Grupo J"
-        },
-        {
-            "id": "ALG20",
-            "name": "Mohammed Amoura",
-            "countryId": "ALG",
-            "group": "Grupo J"
-        },
-        {
             "id": "POR1",
             "name": "Escudo de la FPF",
             "countryId": "POR",
@@ -5038,126 +5038,6 @@
             "id": "POR20",
             "name": "Rafael Leão",
             "countryId": "POR",
-            "group": "Grupo K"
-        },
-        {
-            "id": "COL1",
-            "name": "Escudo de la FCF",
-            "countryId": "COL",
-            "group": "Grupo K"
-        },
-        {
-            "id": "COL2",
-            "name": "Camilo Vargas",
-            "countryId": "COL",
-            "group": "Grupo K"
-        },
-        {
-            "id": "COL3",
-            "name": "David Ospina",
-            "countryId": "COL",
-            "group": "Grupo K"
-        },
-        {
-            "id": "COL4",
-            "name": "Dávinson Sánchez",
-            "countryId": "COL",
-            "group": "Grupo K"
-        },
-        {
-            "id": "COL5",
-            "name": "Yerry Mina",
-            "countryId": "COL",
-            "group": "Grupo K"
-        },
-        {
-            "id": "COL6",
-            "name": "Daniel Munoz",
-            "countryId": "COL",
-            "group": "Grupo K"
-        },
-        {
-            "id": "COL7",
-            "name": "Johan Mojica",
-            "countryId": "COL",
-            "group": "Grupo K"
-        },
-        {
-            "id": "COL8",
-            "name": "Jhon Lucumí",
-            "countryId": "COL",
-            "group": "Grupo K"
-        },
-        {
-            "id": "COL9",
-            "name": "Santiago Arias",
-            "countryId": "COL",
-            "group": "Grupo K"
-        },
-        {
-            "id": "COL10",
-            "name": "Jefferson Lerma",
-            "countryId": "COL",
-            "group": "Grupo K"
-        },
-        {
-            "id": "COL11",
-            "name": "Kevin Castaño",
-            "countryId": "COL",
-            "group": "Grupo K"
-        },
-        {
-            "id": "COL12",
-            "name": "Richard Rios",
-            "countryId": "COL",
-            "group": "Grupo K"
-        },
-        {
-            "id": "COL13",
-            "name": "Fotografía de Equipo",
-            "countryId": "COL",
-            "group": "Grupo K"
-        },
-        {
-            "id": "COL14",
-            "name": "James Rodriguez",
-            "countryId": "COL",
-            "group": "Grupo K"
-        },
-        {
-            "id": "COL15",
-            "name": "Juan Fernando Quintero",
-            "countryId": "COL",
-            "group": "Grupo K"
-        },
-        {
-            "id": "COL16",
-            "name": "Jorge Carrascal",
-            "countryId": "COL",
-            "group": "Grupo K"
-        },
-        {
-            "id": "COL17",
-            "name": "Jhon Arias",
-            "countryId": "COL",
-            "group": "Grupo K"
-        },
-        {
-            "id": "COL18",
-            "name": "Jhon Cordova",
-            "countryId": "COL",
-            "group": "Grupo K"
-        },
-        {
-            "id": "COL19",
-            "name": "Luis Suarez",
-            "countryId": "COL",
-            "group": "Grupo K"
-        },
-        {
-            "id": "COL20",
-            "name": "Luis Diaz",
-            "countryId": "COL",
             "group": "Grupo K"
         },
         {
@@ -5398,6 +5278,126 @@
             "id": "UZB20",
             "name": "Abbosbek Fayzullaev",
             "countryId": "UZB",
+            "group": "Grupo K"
+        },
+        {
+            "id": "COL1",
+            "name": "Escudo de la FCF",
+            "countryId": "COL",
+            "group": "Grupo K"
+        },
+        {
+            "id": "COL2",
+            "name": "Camilo Vargas",
+            "countryId": "COL",
+            "group": "Grupo K"
+        },
+        {
+            "id": "COL3",
+            "name": "David Ospina",
+            "countryId": "COL",
+            "group": "Grupo K"
+        },
+        {
+            "id": "COL4",
+            "name": "Dávinson Sánchez",
+            "countryId": "COL",
+            "group": "Grupo K"
+        },
+        {
+            "id": "COL5",
+            "name": "Yerry Mina",
+            "countryId": "COL",
+            "group": "Grupo K"
+        },
+        {
+            "id": "COL6",
+            "name": "Daniel Munoz",
+            "countryId": "COL",
+            "group": "Grupo K"
+        },
+        {
+            "id": "COL7",
+            "name": "Johan Mojica",
+            "countryId": "COL",
+            "group": "Grupo K"
+        },
+        {
+            "id": "COL8",
+            "name": "Jhon Lucumí",
+            "countryId": "COL",
+            "group": "Grupo K"
+        },
+        {
+            "id": "COL9",
+            "name": "Santiago Arias",
+            "countryId": "COL",
+            "group": "Grupo K"
+        },
+        {
+            "id": "COL10",
+            "name": "Jefferson Lerma",
+            "countryId": "COL",
+            "group": "Grupo K"
+        },
+        {
+            "id": "COL11",
+            "name": "Kevin Castaño",
+            "countryId": "COL",
+            "group": "Grupo K"
+        },
+        {
+            "id": "COL12",
+            "name": "Richard Rios",
+            "countryId": "COL",
+            "group": "Grupo K"
+        },
+        {
+            "id": "COL13",
+            "name": "Fotografía de Equipo",
+            "countryId": "COL",
+            "group": "Grupo K"
+        },
+        {
+            "id": "COL14",
+            "name": "James Rodriguez",
+            "countryId": "COL",
+            "group": "Grupo K"
+        },
+        {
+            "id": "COL15",
+            "name": "Juan Fernando Quintero",
+            "countryId": "COL",
+            "group": "Grupo K"
+        },
+        {
+            "id": "COL16",
+            "name": "Jorge Carrascal",
+            "countryId": "COL",
+            "group": "Grupo K"
+        },
+        {
+            "id": "COL17",
+            "name": "Jhon Arias",
+            "countryId": "COL",
+            "group": "Grupo K"
+        },
+        {
+            "id": "COL18",
+            "name": "Jhon Cordova",
+            "countryId": "COL",
+            "group": "Grupo K"
+        },
+        {
+            "id": "COL19",
+            "name": "Luis Suarez",
+            "countryId": "COL",
+            "group": "Grupo K"
+        },
+        {
+            "id": "COL20",
+            "name": "Luis Diaz",
+            "countryId": "COL",
             "group": "Grupo K"
         },
         {
