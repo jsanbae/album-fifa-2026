@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { ui } from '../../../../shared/infrastructure/ui/uiStrings.js';
 import type { CountryDTO } from '../../adapters/CatalogApiAdapter.js';
 import type { OwnershipFilter, ScopeFilter } from '../store/useCatalog.hook.js';
-import { FilterSheet } from './FilterSheet.js';
-import { hasActiveScope, OWNERSHIP_FILTERS, ownershipLabel } from './filterChipUtils.js';
+import { FilterSheet, type FilterSheetMode } from './FilterSheet.js';
+import { OWNERSHIP_FILTERS, ownershipLabel } from './filterChipUtils.js';
 import styles from './FilterBar.module.css';
 import chipStyles from './FilterChips.module.css';
 
@@ -16,61 +16,70 @@ interface FilterBarProps {
 }
 
 export function FilterBar(props: FilterBarProps) {
-  const [sheetOpen, setSheetOpen] = useState(false);
-  const scopeActive = hasActiveScope(props.scopeFilter);
+  const [sheetMode, setSheetMode] = useState<FilterSheetMode | null>(null);
+  const groupActive = props.scopeFilter.kind === 'group';
+  const countryActive = props.scopeFilter.kind === 'country';
 
   return (
     <div className={styles.container} aria-label={ui.album.filterStickers}>
-      <section className={styles.section} aria-labelledby="filter-section-estado">
-        <h2 id="filter-section-estado" className={styles.sectionTitle}>
-          {ui.album.filterSectionEstado}
+      <section className={styles.section} aria-labelledby="filter-section-title">
+        <h2 id="filter-section-title" className={styles.sectionTitle}>
+          {ui.album.filterSectionTitle}
         </h2>
-        <div className={styles.row}>
-          <div
-            className={chipStyles.chips}
-            role="group"
-            aria-label={ui.album.filterSectionEstado}
-          >
-            {OWNERSHIP_FILTERS.map((filter) => {
-              const label = ownershipLabel(filter);
-              const isActive = props.ownershipFilter === filter;
-              return (
-                <button
-                  key={filter}
-                  type="button"
-                  className={isActive ? chipStyles.chipActive : chipStyles.chip}
-                  onClick={() => props.onOwnershipChange(filter)}
-                  aria-pressed={isActive}
-                  aria-label={label}
-                >
-                  <span className={chipStyles.chipLabel}>{label}</span>
-                </button>
-              );
-            })}
-          </div>
+        <div
+          className={chipStyles.chips}
+          role="group"
+          aria-label={ui.album.filterSectionTitle}
+        >
+          {OWNERSHIP_FILTERS.map((filter) => {
+            const label = ownershipLabel(filter);
+            const isActive = props.ownershipFilter === filter;
+            return (
+              <button
+                key={filter}
+                type="button"
+                className={isActive ? chipStyles.chipActive : chipStyles.chip}
+                onClick={() => props.onOwnershipChange(filter)}
+                aria-pressed={isActive}
+                aria-label={label}
+              >
+                <span className={chipStyles.chipLabel}>{label}</span>
+              </button>
+            );
+          })}
           <button
             type="button"
-            className={styles.filtersButton}
-            onClick={() => setSheetOpen(true)}
+            className={groupActive ? chipStyles.chipActive : chipStyles.chip}
+            onClick={() => setSheetMode('groups')}
+            aria-pressed={groupActive}
             aria-haspopup="dialog"
+            aria-label={ui.album.filterSectionGrupos}
           >
-            {ui.album.filterOpen}
-            {scopeActive && (
-              <span className={styles.badge} aria-label={ui.album.filterScopeActive}>
-                1
-              </span>
-            )}
+            <span className={chipStyles.chipLabel}>{ui.album.filterSectionGrupos}</span>
+          </button>
+          <button
+            type="button"
+            className={countryActive ? chipStyles.chipActive : chipStyles.chip}
+            onClick={() => setSheetMode('countries')}
+            aria-pressed={countryActive}
+            aria-haspopup="dialog"
+            aria-label={ui.album.filterSectionPaises}
+          >
+            <span className={chipStyles.chipLabel}>{ui.album.filterSectionPaises}</span>
           </button>
         </div>
       </section>
 
-      <FilterSheet
-        open={sheetOpen}
-        scopeFilter={props.scopeFilter}
-        countries={props.countries}
-        onClose={() => setSheetOpen(false)}
-        onScopeChange={props.onScopeChange}
-      />
+      {sheetMode !== null && (
+        <FilterSheet
+          open
+          mode={sheetMode}
+          scopeFilter={props.scopeFilter}
+          countries={props.countries}
+          onClose={() => setSheetMode(null)}
+          onScopeChange={props.onScopeChange}
+        />
+      )}
     </div>
   );
 }

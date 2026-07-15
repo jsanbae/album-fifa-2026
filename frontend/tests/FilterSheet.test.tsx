@@ -10,10 +10,11 @@ const countries: CountryDTO[] = [
 ];
 
 describe('FilterSheet', () => {
-  it('renders Grupos and Países tabs', () => {
+  it('renders group chips in groups mode', () => {
     render(
       <FilterSheet
         open
+        mode="groups"
         scopeFilter={{ kind: 'none' }}
         countries={countries}
         onClose={vi.fn()}
@@ -21,8 +22,9 @@ describe('FilterSheet', () => {
       />,
     );
 
-    expect(screen.getByRole('tab', { name: 'Grupos' })).toBeInTheDocument();
-    expect(screen.getByRole('tab', { name: 'Países' })).toBeInTheDocument();
+    expect(screen.getByRole('dialog', { name: 'Grupos' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Grupo A' })).toBeInTheDocument();
+    expect(screen.queryByLabelText('Buscar país')).not.toBeInTheDocument();
   });
 
   it('applies group scope and closes the sheet', () => {
@@ -31,6 +33,7 @@ describe('FilterSheet', () => {
     render(
       <FilterSheet
         open
+        mode="groups"
         scopeFilter={{ kind: 'none' }}
         countries={countries}
         onClose={onClose}
@@ -44,10 +47,11 @@ describe('FilterSheet', () => {
     expect(onClose).toHaveBeenCalledTimes(1);
   });
 
-  it('filters countries by search query', () => {
+  it('filters countries by search query in countries mode', () => {
     render(
       <FilterSheet
         open
+        mode="countries"
         scopeFilter={{ kind: 'none' }}
         countries={countries}
         onClose={vi.fn()}
@@ -55,7 +59,6 @@ describe('FilterSheet', () => {
       />,
     );
 
-    fireEvent.click(screen.getByRole('tab', { name: 'Países' }));
     fireEvent.change(screen.getByLabelText('Buscar país'), { target: { value: 'mex' } });
 
     const paises = screen.getByRole('group', { name: 'Países' });
@@ -72,6 +75,7 @@ describe('FilterSheet', () => {
     render(
       <FilterSheet
         open
+        mode="countries"
         scopeFilter={{ kind: 'none' }}
         countries={countries}
         onClose={onClose}
@@ -79,7 +83,6 @@ describe('FilterSheet', () => {
       />,
     );
 
-    fireEvent.click(screen.getByRole('tab', { name: 'Países' }));
     fireEvent.click(screen.getByRole('button', { name: 'México' }));
 
     expect(onScopeChange).toHaveBeenCalledWith({ kind: 'country', id: 'MEX' });
