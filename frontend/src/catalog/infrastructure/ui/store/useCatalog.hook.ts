@@ -136,6 +136,13 @@ export function useCatalog(adapter: CatalogApiAdapter) {
     await loadStickersInternal(state.ownershipFilter, state.scopeFilter, search);
   };
 
+  const clearScopeFilter = async () => {
+    if (state.scopeFilter.kind === 'none') {
+      return;
+    }
+    await loadStickersInternal(state.ownershipFilter, { kind: 'none' }, state.search);
+  };
+
   const updateStickerCount = (stickerId: string, count: number) => {
     setState((prev) =>
       prev.stickers.fold(
@@ -165,6 +172,7 @@ export function useCatalog(adapter: CatalogApiAdapter) {
     loadStickers,
     setOwnershipFilter,
     setScopeFilter,
+    clearScopeFilter,
     setSearch,
     updateStickerCount,
   };

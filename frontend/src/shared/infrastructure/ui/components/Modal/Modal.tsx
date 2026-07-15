@@ -8,10 +8,14 @@ interface ModalProps {
   titleId: string;
   onClose: () => void;
   children: ReactNode;
+  variant?: 'center' | 'sheet';
 }
 
 export function Modal(props: ModalProps) {
   const dialogRef = useRef<HTMLDialogElement>(null);
+  const variant = props.variant ?? 'center';
+  const dialogClassName = variant === 'sheet' ? styles.dialogSheet : styles.dialog;
+  const panelClassName = variant === 'sheet' ? styles.panelSheet : styles.panel;
 
   useEffect(() => {
     const dialog = dialogRef.current;
@@ -37,11 +41,12 @@ export function Modal(props: ModalProps) {
   return (
     <dialog
       ref={dialogRef}
-      className={styles.dialog}
+      className={dialogClassName}
+      data-variant={variant}
       aria-labelledby={props.titleId}
       onCancel={handleCancel}
     >
-      <div className={styles.panel}>
+      <div className={panelClassName}>
         <header className={styles.header}>
           <h2 id={props.titleId} className={styles.title}>
             {props.title}

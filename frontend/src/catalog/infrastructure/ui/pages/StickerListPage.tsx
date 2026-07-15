@@ -1,7 +1,8 @@
 import { GROUP_DISPLAY_ORDER } from '@album/common';
 import { useEffect, useId, useState } from 'react';
 import type { StickerDTO } from '../../adapters/CatalogApiAdapter.js';
-import { FilterChips } from '../components/FilterChips.js';
+import { FilterBar } from '../components/FilterBar.js';
+import { ActiveFilterPills } from '../components/ActiveFilterPills.js';
 import { ProgressBar } from '../components/ProgressBar.js';
 import { StickerListSection } from '../components/StickerListSection.js';
 import { StickerSearch } from '../components/StickerSearch.js';
@@ -221,12 +222,20 @@ export function StickerListPage(props: StickerListPageProps) {
         loading={props.catalogHook.loading && props.catalogHook.stickers.isSome()}
       />
 
-      <FilterChips
+      <FilterBar
         ownershipFilter={props.catalogHook.ownershipFilter}
         scopeFilter={props.catalogHook.scopeFilter}
         countries={props.catalogHook.countries.getOrElse([])}
         onOwnershipChange={(filter) => props.catalogHook.setOwnershipFilter(filter)}
         onScopeChange={(scope) => props.catalogHook.setScopeFilter(scope)}
+      />
+
+      <ActiveFilterPills
+        ownershipFilter={props.catalogHook.ownershipFilter}
+        scopeFilter={props.catalogHook.scopeFilter}
+        countries={props.catalogHook.countries.getOrElse([])}
+        onClearOwnership={() => props.catalogHook.setOwnershipFilter('all')}
+        onClearScope={() => props.catalogHook.clearScopeFilter()}
       />
 
       <div className={styles.sections}>{displayContent()}</div>

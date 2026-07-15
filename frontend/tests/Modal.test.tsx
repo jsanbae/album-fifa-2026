@@ -56,4 +56,24 @@ describe('Modal', () => {
 
     expect(onClose).toHaveBeenCalledTimes(1);
   });
+
+  it('renders a bottom sheet variant with scrollable body', () => {
+    render(
+      <Modal
+        open
+        variant="sheet"
+        title="Filtrar cromos"
+        titleId="filter-sheet-title"
+        onClose={vi.fn()}
+      >
+        <p>Filter content</p>
+      </Modal>,
+    );
+
+    const dialog = screen.getByRole('dialog', { name: 'Filtrar cromos' });
+
+    expect(dialog).toHaveAttribute('data-variant', 'sheet');
+    expect(screen.getByRole('button', { name: 'Cerrar' })).toBeInTheDocument();
+    expect(screen.getByText('Filter content')).toBeInTheDocument();
+  });
 });

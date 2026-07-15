@@ -21,6 +21,7 @@ function createCatalogHook(
     loadStickers: vi.fn(),
     setOwnershipFilter: vi.fn(),
     setScopeFilter: vi.fn(),
+    clearScopeFilter: vi.fn(),
     setSearch: vi.fn(),
     updateStickerCount: vi.fn(),
     ...overrides,
@@ -309,8 +310,8 @@ describe('The StickerListPage', () => {
 
     expect(screen.getByText('MEX Player 2')).toBeInTheDocument();
     expect(screen.queryByText('MEX Player 1')).not.toBeInTheDocument();
-    expect(screen.getByRole('button', { name: 'México' })).toHaveAttribute('aria-pressed', 'true');
-    expect(screen.getByRole('button', { name: 'Faltantes' })).toHaveAttribute('aria-pressed', 'true');
+    expect(screen.getByRole('button', { name: 'Quitar filtro México' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Quitar filtro Faltantes' })).toBeInTheDocument();
   });
 
   it('shows only duplicate stickers when the duplicates filter is active', () => {

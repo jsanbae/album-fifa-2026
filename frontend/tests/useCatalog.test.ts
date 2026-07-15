@@ -109,4 +109,26 @@ describe('useCatalog', () => {
       search: undefined,
     });
   });
+
+  it('clears scope explicitly without toggling', async () => {
+    const fetchStickers = vi.fn().mockResolvedValue([]);
+    const adapter = createAdapter({ fetchStickers });
+    const { result } = renderHook(() => useCatalog(adapter));
+
+    await act(async () => {
+      await result.current.loadCatalog();
+    });
+
+    await act(async () => {
+      await result.current.setScopeFilter({ kind: 'country', id: 'MEX' });
+    });
+
+    await act(async () => {
+      await result.current.clearScopeFilter();
+    });
+
+    await waitFor(() => {
+      expect(result.current.scopeFilter).toEqual({ kind: 'none' });
+    });
+  });
 });

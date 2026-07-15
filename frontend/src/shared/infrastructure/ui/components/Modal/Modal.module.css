@@ -8,7 +8,16 @@
   border: none;
 }
 
-.dialog::backdrop {
+.dialogSheet {
+  composes: dialog;
+  width: 100%;
+  max-width: 100%;
+  max-height: 85vh;
+  margin: auto auto 0;
+}
+
+.dialog::backdrop,
+.dialogSheet::backdrop {
   background: rgb(0 0 0 / 55%);
   backdrop-filter: blur(2px);
 }
@@ -22,6 +31,12 @@
   border: var(--border-glass);
   border-radius: 0.75rem;
   box-shadow: 0 1rem 2.5rem rgb(0 0 0 / 35%);
+}
+
+.panelSheet {
+  composes: panel;
+  max-height: 85vh;
+  border-radius: 0.75rem 0.75rem 0 0;
 }
 
 .header {
