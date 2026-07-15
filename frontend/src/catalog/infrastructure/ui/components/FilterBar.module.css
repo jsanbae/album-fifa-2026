@@ -19,3 +19,16 @@
   text-transform: uppercase;
   color: var(--text-secondary-color);
 }
+
+.scopeChip {
+  max-width: 11rem;
+  min-width: 0;
+}
+
+.scopeChipLabel {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
+}

@@ -35,7 +35,41 @@ describe('FilterBar', () => {
       'Grupos',
       'Países',
     ]);
-    expect(screen.queryByRole('button', { name: 'Grupo A' })).not.toBeInTheDocument();
+  });
+
+  it('shows the selected group name on the Grupos chip', () => {
+    render(
+      <FilterBar
+        ownershipFilter="all"
+        scopeFilter={{ kind: 'group', name: 'Grupo A' }}
+        countries={countries}
+        onOwnershipChange={vi.fn()}
+        onScopeChange={vi.fn()}
+      />,
+    );
+
+    const groupsChip = screen.getByRole('button', { name: 'Grupo A' });
+    expect(groupsChip).toHaveAttribute('aria-pressed', 'true');
+    expect(groupsChip).toHaveTextContent('Grupo A');
+    expect(screen.getByRole('button', { name: 'Países' })).toHaveAttribute('aria-pressed', 'false');
+  });
+
+  it('shows the selected country flag and name on the Países chip', async () => {
+    render(
+      <FilterBar
+        ownershipFilter="all"
+        scopeFilter={{ kind: 'country', id: 'MEX' }}
+        countries={countries}
+        onOwnershipChange={vi.fn()}
+        onScopeChange={vi.fn()}
+      />,
+    );
+
+    const countriesChip = screen.getByRole('button', { name: 'México' });
+    expect(countriesChip).toHaveAttribute('aria-pressed', 'true');
+    expect(countriesChip).toHaveTextContent('México');
+    expect(await within(countriesChip).findByRole('img', { name: 'México' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Grupos' })).toHaveAttribute('aria-pressed', 'false');
   });
 
   it('opens the Grupos sheet from the Grupos chip', () => {
@@ -55,6 +89,24 @@ describe('FilterBar', () => {
     expect(screen.getByRole('button', { name: 'Grupo A' })).toBeInTheDocument();
   });
 
+  it('reopens the Grupos sheet from an active selection without clearing scope', () => {
+    const onScopeChange = vi.fn();
+    render(
+      <FilterBar
+        ownershipFilter="all"
+        scopeFilter={{ kind: 'group', name: 'Grupo A' }}
+        countries={countries}
+        onOwnershipChange={vi.fn()}
+        onScopeChange={onScopeChange}
+      />,
+    );
+
+    fireEvent.click(screen.getByRole('button', { name: 'Grupo A' }));
+
+    expect(screen.getByRole('dialog', { name: 'Grupos' })).toBeInTheDocument();
+    expect(onScopeChange).not.toHaveBeenCalled();
+  });
+
   it('opens the Países sheet from the Países chip', () => {
     render(
       <FilterBar
@@ -72,33 +124,21 @@ describe('FilterBar', () => {
     expect(screen.getByLabelText('Buscar país')).toBeInTheDocument();
   });
 
-  it('marks Grupos chip active when a group scope is selected', () => {
-    render(
-      <FilterBar
-        ownershipFilter="all"
-        scopeFilter={{ kind: 'group', name: 'Grupo A' }}
-        countries={countries}
-        onOwnershipChange={vi.fn()}
-        onScopeChange={vi.fn()}
-      />,
-    );
-
-    expect(screen.getByRole('button', { name: 'Grupos' })).toHaveAttribute('aria-pressed', 'true');
-    expect(screen.getByRole('button', { name: 'Países' })).toHaveAttribute('aria-pressed', 'false');
-  });
-
-  it('marks Países chip active when a country scope is selected', () => {
+  it('reopens the Países sheet from an active country without clearing scope', () => {
+    const onScopeChange = vi.fn();
     render(
       <FilterBar
         ownershipFilter="all"
         scopeFilter={{ kind: 'country', id: 'MEX' }}
         countries={countries}
         onOwnershipChange={vi.fn()}
-        onScopeChange={vi.fn()}
+        onScopeChange={onScopeChange}
       />,
     );
 
-    expect(screen.getByRole('button', { name: 'Países' })).toHaveAttribute('aria-pressed', 'true');
-    expect(screen.getByRole('button', { name: 'Grupos' })).toHaveAttribute('aria-pressed', 'false');
+    fireEvent.click(screen.getByRole('button', { name: 'México' }));
+
+    expect(screen.getByRole('dialog', { name: 'Países' })).toBeInTheDocument();
+    expect(onScopeChange).not.toHaveBeenCalled();
   });
 });
