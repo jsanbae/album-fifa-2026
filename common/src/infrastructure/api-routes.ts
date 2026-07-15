@@ -15,7 +15,7 @@ export const API_ROUTES = {
 } as const;
 
 export const ALBUM_ID = 'fifa-2026';
-export const TOTAL_STICKERS = 990;
+export const TOTAL_STICKERS = 994;
 
 export const GROUP_DISPLAY_ORDER = [
   'FIFA World Cup',
